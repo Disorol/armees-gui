@@ -25,7 +25,11 @@
           <MenuItem Header="Exit" />
         </MenuItem>
         <MenuItem Header="Edit"></MenuItem>
-        <MenuItem Header="View"></MenuItem>
+        <MenuItem Header="View">
+          <MenuItem Header="Solution Explorer" Click="Button_Click_1"/>
+          <MenuItem Header="Workspace" Click="Button_Click_2" />
+          <MenuItem Header="Console" />
+        </MenuItem>
         <MenuItem Header="Search"></MenuItem>
         <MenuItem Header="Logic"></MenuItem>
         <MenuItem Header="Communications"></MenuItem>
@@ -36,14 +40,7 @@
     </Grid>
 
     <Grid Grid.Row="1">
-      <DockPanel>
-        <Button Click="Button_Click_1">
-          Вкладка 1
-        </Button>
-        <Button Click="Button_Click_2">
-          Вкладка 2
-        </Button>
-      </DockPanel>
+
     </Grid>
 
     <GridSplitter Grid.Row="2"
