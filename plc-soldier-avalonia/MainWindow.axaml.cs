@@ -38,6 +38,11 @@ namespace plc_soldier_avalonia
         {
             if (!TabItemsContent.Contains(items[1])) TabItemsContent.Add(items[1]);
         }
+
+        private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 
     public class TabItemExample
