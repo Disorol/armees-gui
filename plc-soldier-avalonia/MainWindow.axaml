@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="540"
         x:Class="plc_soldier_avalonia.MainWindow"
         RequestedThemeVariant="Light"
-        Title="plc_soldier_avalonia">
+        Title="PLC Soldier">
   
   <Grid>
     <Grid.RowDefinitions>
@@ -31,9 +31,11 @@
         </MenuItem>
         <MenuItem Header="Edit"></MenuItem>
         <MenuItem Header="View">
-          <MenuItem Header="Solution Explorer" Click="Solution_Click" />
-          <MenuItem Header="Workspace" />
-          <MenuItem Header="Console" Click="Console_Click" />
+          <MenuItem Header="Logical Organizer" Click="LogicalOrganizer_Click" />
+          <MenuItem Header="Controller-organizer" Click="ControllerOrganizer_Click" />
+          <MenuItem Header="Errors" Click="Errors_Click" />
+          <MenuItem Header="Search Results" Click="SearchResults_Click" />
+          <MenuItem Header="Watch" Click="Watch_Click" />
         </MenuItem>
         <MenuItem Header="Search"></MenuItem>
         <MenuItem Header="Logic"></MenuItem>
@@ -64,7 +66,7 @@
     <!-- Main-space -->
     <Grid Grid.Row="3">
       <Grid.ColumnDefinitions>
-        <!-- Solution-explorer-template -->
+        <!-- Left-space-template -->
         <ColumnDefinition Width="300" MinWidth="150"/>
         <!-- Splitter-template -->
         <ColumnDefinition Width="1" MaxWidth="1"/>
@@ -72,7 +74,7 @@
         <ColumnDefinition Width="*" MinWidth="150" />
       </Grid.ColumnDefinitions>
 
-      <!-- Solution-explorer -->
+      <!-- Left-space -->
       <Grid Grid.Column="0">
         <DockPanel>
           <TabControl Name="LeftSpace">
@@ -132,7 +134,7 @@
           <RowDefinition Height="*" MinHeight="100"/>
           <!-- Splitter-template -->
           <RowDefinition Height="1" MaxHeight="1"/>
-          <!-- Console-template -->
+          <!-- Bottom-space-template -->
           <RowDefinition Height="150" MinHeight="100"/>
         </Grid.RowDefinitions>
 
@@ -153,7 +155,7 @@
                       ResizeBehavior="PreviousAndNext"
                       HorizontalAlignment="Stretch"/>
 
-        <!-- Console -->
+        <!-- Bottom-space -->
         <Grid Grid.Row="2">
           <DockPanel>
             <TabControl Name="BottomSpace">
