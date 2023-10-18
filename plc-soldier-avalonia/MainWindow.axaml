@@ -2,11 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:xxx="using:plc_soldier_avalonia"
+        xmlns:xxx="using:plc_soldier_avalonia.Model"
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="540"
         x:Class="plc_soldier_avalonia.MainWindow"
         RequestedThemeVariant="Light"
         Title="plc_soldier_avalonia">
+  
   <Grid>
     <Grid.RowDefinitions>
       <!-- Menu-template -->
@@ -15,7 +16,7 @@
       <RowDefinition Height="100" MinHeight="50"/>
       <!-- Splitter-template -->
       <RowDefinition Height="1" MaxHeight="1"/>
-      <!-- Mainspace-template -->
+      <!-- Main-space-template -->
       <RowDefinition Height="*" MinHeight="300" />
     </Grid.RowDefinitions>
 
@@ -55,36 +56,43 @@
                   ResizeBehavior="PreviousAndNext"
                   HorizontalAlignment="Stretch"/>
 
-    <!-- Mainspace -->
+    <!-- Main-space -->
     <Grid Grid.Row="3">
       <Grid.ColumnDefinitions>
         <!-- Solution-explorer-template -->
         <ColumnDefinition Width="300" MinWidth="150"/>
         <!-- Splitter-template -->
         <ColumnDefinition Width="1" MaxWidth="1"/>
-        <!-- Rightspace-template -->
+        <!-- Right-space-template -->
         <ColumnDefinition Width="*" MinWidth="150" />
       </Grid.ColumnDefinitions>
 
       <!-- Solution-explorer -->
       <Grid Grid.Column="0">
         <DockPanel>
-          <TabControl BorderBrush="Black" BorderThickness="1" Name="gagaga">
+          <TabControl BorderBrush="Black" BorderThickness="1" Name="LeftSpace">
             <TabControl.Styles>
               <Style Selector="TabItem">
                 <Setter Property="HeaderTemplate">
                   <Setter.Value>
-                    <DataTemplate x:DataType="xxx:TabItemExample">
+                    <DataTemplate x:DataType="xxx:LeftTabItem">
                       <DockPanel>
-                        <Button DockPanel.Dock="Right" Click="Button_Click">X</Button>
-                        <TextBlock DockPanel.Dock="Right" Text="{Binding Title}"></TextBlock>
+                        <Button DockPanel.Dock="Right" 
+                                Click="Delete_Click"
+                                Height="15"
+                                Width="15">X</Button>
+                        <TextBlock DockPanel.Dock="Right"
+                                   Text="{Binding Title}"
+                                   FontSize="15"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"></TextBlock>
                       </DockPanel>
                     </DataTemplate>
                   </Setter.Value>
                 </Setter>
                 <Setter Property="ContentTemplate">
                   <Setter.Value>
-                    <DataTemplate x:DataType="xxx:TabItemExample">
+                    <DataTemplate x:DataType="xxx:LeftTabItem">
                       <TextBlock Text="{Binding Content}"/>
                     </DataTemplate>
                   </Setter.Value>
@@ -102,7 +110,7 @@
                     ResizeBehavior="PreviousAndNext"
                     HorizontalAlignment="Stretch"/>
 
-      <!-- Rightspace -->
+      <!-- Right-space -->
       <Grid Grid.Column="2">
         <Grid.RowDefinitions>
           <!-- Workspace-template -->
@@ -128,14 +136,14 @@
         <!-- Console -->
         <Grid Grid.Row="2">
           <DockPanel>
-            <TabControl BorderBrush="Black" BorderThickness="1" Name="asdsad">
+            <TabControl BorderBrush="Black" BorderThickness="1" Name="BottomSpace">
               <TabControl.Styles>
                 <Style Selector="TabItem">
                   <Setter Property="HeaderTemplate">
                     <Setter.Value>
-                      <DataTemplate x:DataType="xxx:TabItemExample">
+                      <DataTemplate x:DataType="xxx:BottomTabItem">
                         <DockPanel>
-                          <Button DockPanel.Dock="Right" Click="Button_Click">X</Button>
+                          <Button DockPanel.Dock="Right" Click="Delete_Click">X</Button>
                           <TextBlock DockPanel.Dock="Right" Text="{Binding Title}"></TextBlock>
                         </DockPanel>
                       </DataTemplate>
@@ -143,7 +151,7 @@
                   </Setter>
                   <Setter Property="ContentTemplate">
                     <Setter.Value>
-                      <DataTemplate x:DataType="xxx:TabItemExample">
+                      <DataTemplate x:DataType="xxx:BottomTabItem">
                         <TextBlock Text="{Binding Content}"/>
                       </DataTemplate>
                     </Setter.Value>

@@ -1,55 +1,72 @@
 using Avalonia.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using plc_soldier_avalonia.Model;
 
 namespace plc_soldier_avalonia
 {
     public partial class MainWindow : Window
     {
-        List<TabItemExample> items = new List<TabItemExample>()
+        // List of content for bottom space TabItems
+        List<BottomTabItem> bottomItems = new List<BottomTabItem>()
         {
-            new TabItemExample(){Content = "какой то текст", Title = "Шапка" },
-            new TabItemExample(){Content = "ЕЩЁ какой то текст", Title = "Другая шапка" },
+            new BottomTabItem(){Content = "какой то текст", Title = "Консоль" },
+
         };
 
-        public ObservableCollection<TabItemExample> TabItemsContent { get; set; }
-        public ObservableCollection<TabItemExample> TabItemsContent2 { get; set; }
+        // List of content for left space TabItems
+        List<LeftTabItem> leftItems = new List<LeftTabItem>()
+        {
+            new LeftTabItem(){Content = "какой то текст", Title = "Обозреватель решений" },
+        };
+
+        // A list containing bottom space Tabitems
+        public ObservableCollection<BottomTabItem> BottomContent { get; set; }
+        // A list containing left space Tabitems
+        public ObservableCollection<LeftTabItem> LeftContent { get; set; }
 
         public MainWindow()
         {
-            TabItemsContent = new ObservableCollection<TabItemExample>();
-            TabItemsContent2 = new ObservableCollection<TabItemExample>();
+            BottomContent = new ObservableCollection<BottomTabItem>();
+            LeftContent = new ObservableCollection<LeftTabItem>();
+
             InitializeComponent();
-            asdsad.ItemsSource = TabItemsContent;
-            gagaga.ItemsSource = TabItemsContent2;
+
+            BottomSpace.ItemsSource = BottomContent;
+            LeftSpace.ItemsSource = LeftContent;
         }
 
-        private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        // Removing TabItem
+        private void Delete_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            if (sender is Button b && b.DataContext is TabItemExample example)
+            if (sender is Button b)
             {
-                TabItemsContent.Remove(example);
+                if (b.DataContext is BottomTabItem bottomExample) 
+                {
+                    BottomContent.Remove(bottomExample);
+                } 
+                else if (b.DataContext is LeftTabItem leftExample)
+                {
+                    LeftContent.Remove(leftExample);
+                }
             }
         }
 
+        // Creating the Solution Explorer TabItem
         private void Solution_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            if (!TabItemsContent2.Contains(items[0])) TabItemsContent2.Add(items[0]);
+            if (!LeftContent.Contains(leftItems[0])) LeftContent.Add(leftItems[0]);
         }
+
+        // Creating the Console TabItem
         private void Console_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            if (!TabItemsContent.Contains(items[1])) TabItemsContent.Add(items[1]);
+            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
         }
 
         private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             this.Close();
         }
-    }
-
-    public class TabItemExample
-    {
-        public string Title { get; set; }
-        public string Content { get; set; }
     }
 }
