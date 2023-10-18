@@ -10,16 +10,18 @@ namespace plc_soldier_avalonia
         {
             new TabItemExample(){Content = "какой то текст", Title = "Шапка" },
             new TabItemExample(){Content = "ЕЩЁ какой то текст", Title = "Другая шапка" },
-
         };
 
         public ObservableCollection<TabItemExample> TabItemsContent { get; set; }
+        public ObservableCollection<TabItemExample> TabItemsContent2 { get; set; }
 
         public MainWindow()
         {
             TabItemsContent = new ObservableCollection<TabItemExample>();
+            TabItemsContent2 = new ObservableCollection<TabItemExample>();
             InitializeComponent();
             asdsad.ItemsSource = TabItemsContent;
+            gagaga.ItemsSource = TabItemsContent2;
         }
 
         private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -30,11 +32,11 @@ namespace plc_soldier_avalonia
             }
         }
 
-        private void Button_Click_1(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void Solution_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            if (!TabItemsContent.Contains(items[0])) TabItemsContent.Add(items[0]);
+            if (!TabItemsContent2.Contains(items[0])) TabItemsContent2.Add(items[0]);
         }
-        private void Button_Click_2(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void Console_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             if (!TabItemsContent.Contains(items[1])) TabItemsContent.Add(items[1]);
         }
