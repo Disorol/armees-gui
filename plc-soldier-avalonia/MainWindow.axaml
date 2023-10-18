@@ -50,7 +50,12 @@
     </Grid>
 
     <!-- Splitter -->
+    <!-- Thanks to the margins, the capture area increases, 
+         and the visible area decreases to the border -->
     <GridSplitter Grid.Row="2"
+                  Margin="0, -5"
+                  BorderThickness="0, 5"
+                  BorderBrush="Transparent"
                   Background="Black"
                   ResizeDirection="Rows"
                   ResizeBehavior="PreviousAndNext"
@@ -70,7 +75,7 @@
       <!-- Solution-explorer -->
       <Grid Grid.Column="0">
         <DockPanel>
-          <TabControl BorderBrush="Black" BorderThickness="1" Name="LeftSpace">
+          <TabControl Name="LeftSpace">
             <TabControl.Styles>
               <Style Selector="TabItem">
                 <Setter Property="HeaderTemplate">
@@ -109,7 +114,12 @@
       </Grid>
 
       <!-- Splitter -->
+      <!-- Thanks to the margins, the capture area increases, 
+           and the visible area decreases to the border -->
       <GridSplitter Grid.Column="1"
+                    Margin="-5, 0"
+                    BorderThickness="5, 0"
+                    BorderBrush="Transparent"
                     Background="Black"
                     ResizeDirection="Columns"
                     ResizeBehavior="PreviousAndNext"
@@ -132,7 +142,12 @@
         </Grid>
 
         <!-- Splitter -->
+        <!-- Thanks to the margins, the capture area increases, 
+             and the visible area decreases to the border -->
         <GridSplitter Grid.Row="1"
+                      Margin="0, -5"
+                      BorderThickness="0, 5"
+                      BorderBrush="Transparent"
                       Background="Black"
                       ResizeDirection="Rows"
                       ResizeBehavior="PreviousAndNext"
@@ -141,15 +156,26 @@
         <!-- Console -->
         <Grid Grid.Row="2">
           <DockPanel>
-            <TabControl BorderBrush="Black" BorderThickness="1" Name="BottomSpace">
+            <TabControl Name="BottomSpace">
               <TabControl.Styles>
                 <Style Selector="TabItem">
                   <Setter Property="HeaderTemplate">
                     <Setter.Value>
                       <DataTemplate x:DataType="xxx:BottomTabItem">
                         <DockPanel>
-                          <Button DockPanel.Dock="Right" Click="Delete_Click">X</Button>
-                          <TextBlock DockPanel.Dock="Right" Text="{Binding Title}"></TextBlock>
+                          <Button DockPanel.Dock="Right"
+                                  Click="Delete_Click"
+                                  Height="15"
+                                  Width="15"
+                                  FontSize="10"
+                                  Margin="10 0 0 0"
+                                  VerticalAlignment="Center"
+                                  Padding="4 0 0 0">x</Button>
+                          <TextBlock DockPanel.Dock="Left"
+                                     Text="{Binding Title}"
+                                     FontSize="15"
+                                     FontFamily="Arial"
+                                     VerticalAlignment="Center" />
                         </DockPanel>
                       </DataTemplate>
                     </Setter.Value>
@@ -161,6 +187,7 @@
                       </DataTemplate>
                     </Setter.Value>
                   </Setter>
+                  <Setter Property="MinHeight" Value="30" />
                 </Style>
               </TabControl.Styles>
             </TabControl>
