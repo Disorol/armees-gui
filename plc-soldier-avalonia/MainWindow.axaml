@@ -80,12 +80,16 @@
                         <Button DockPanel.Dock="Right" 
                                 Click="Delete_Click"
                                 Height="15"
-                                Width="15">X</Button>
-                        <TextBlock DockPanel.Dock="Right"
+                                Width="15"
+                                FontSize="10"
+                                Margin="10 0 0 0"
+                                VerticalAlignment="Center"
+                                Padding="4 0 0 0">x</Button>
+                        <TextBlock DockPanel.Dock="Left"
                                    Text="{Binding Title}"
                                    FontSize="15"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Left"></TextBlock>
+                                   FontFamily="Arial"
+                                   VerticalAlignment="Center" />
                       </DockPanel>
                     </DataTemplate>
                   </Setter.Value>
@@ -97,6 +101,7 @@
                     </DataTemplate>
                   </Setter.Value>
                 </Setter>
+                <Setter Property="MinHeight" Value="30" />
               </Style>
             </TabControl.Styles>
           </TabControl>
