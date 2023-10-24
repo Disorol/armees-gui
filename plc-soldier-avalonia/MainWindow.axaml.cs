@@ -18,8 +18,8 @@ namespace plc_soldier_avalonia
         // List of content for left space TabItems
         List<LeftTabItem> leftItems = new List<LeftTabItem>()
         {
-            new LeftTabItem(){Content = "какой-то текст", Title = "Логический органайзер" },
-            new LeftTabItem(){Content = "какой-то текст", Title = "Контроллер-органайзер" },
+            new LeftTabItem(){Title = "Логический органайзер", HierarchicalContent = new ObservableCollection<Node> { new Node(@"C:\Users\T\source\repos\plc-soldier-wpf") } },
+            new LeftTabItem(){Title = "Контроллер-органайзер", HierarchicalContent = null },
         };
 
         // A list containing bottom space Tabitems

@@ -19,7 +19,7 @@ namespace plc_soldier_avalonia.Model
         public ObservableCollection<Node>? Subfiles { get; set; }
 
         // File or directory title. Maybe Null so that empty folders can be opened.
-        public string? FileName { get; set; }
+        public string? Name { get; set; }
 
         // The path to this file. Maybe Null so that empty folders can be opened.
         public string? PathString { get; set; }
@@ -29,7 +29,7 @@ namespace plc_soldier_avalonia.Model
         {
             PathString = path;
 
-            FileName = System.IO.Path.GetFileName(path);
+            Name = System.IO.Path.GetFileName(path);
 
             Subfiles = new ObservableCollection<Node>();
 
@@ -70,7 +70,7 @@ namespace plc_soldier_avalonia.Model
         {
             PathString = path;
 
-            FileName = System.IO.Path.GetFileName(path);
+            Name = System.IO.Path.GetFileName(path);
         }
 
         // Overloaded constructor for opening empty directories

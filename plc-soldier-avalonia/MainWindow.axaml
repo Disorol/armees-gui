@@ -104,7 +104,13 @@
                 <Setter Property="ContentTemplate">
                   <Setter.Value>
                     <DataTemplate x:DataType="xxx:LeftTabItem">
-                      <TextBlock Text="{Binding Content}"/>
+                      <TreeView ItemsSource="{Binding HierarchicalContent}">
+                        <TreeView.ItemTemplate>
+                          <TreeDataTemplate ItemsSource="{Binding Subfiles}">
+                            <TextBlock Text="{Binding Name}"/>
+                          </TreeDataTemplate>
+                        </TreeView.ItemTemplate>
+                      </TreeView>
                     </DataTemplate>
                   </Setter.Value>
                 </Setter>
