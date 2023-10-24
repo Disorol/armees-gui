@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace plc_soldier_avalonia.Model
 {
-    public class LeftTabItem
+    public class LeftUpperTabItem : ITabItem
     {
-        public string Title { get; set; }
-        public ObservableCollection<Node>? HierarchicalContent { get; set; }
+        public string Header { get; set; }
+        public ObservableCollection<Node>? TreeViewContent { get; set; }
     }
 }

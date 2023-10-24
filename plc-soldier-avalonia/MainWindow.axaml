@@ -76,49 +76,74 @@
 
       <!-- Left-space -->
       <Grid Grid.Column="0">
-        <DockPanel>
-          <TabControl Name="LeftSpace">
-            <TabControl.Styles>
-              <Style Selector="TabItem">
-                <Setter Property="HeaderTemplate">
-                  <Setter.Value>
-                    <DataTemplate x:DataType="xxx:LeftTabItem">
-                      <DockPanel>
-                        <Button DockPanel.Dock="Right" 
-                                Click="Delete_Click"
-                                Height="15"
-                                Width="15"
-                                FontSize="10"
-                                Margin="10 0 0 0"
-                                VerticalAlignment="Center"
-                                Padding="4 0 0 0">x</Button>
-                        <TextBlock DockPanel.Dock="Left"
-                                   Text="{Binding Title}"
-                                   FontSize="15"
-                                   FontFamily="Arial"
-                                   VerticalAlignment="Center" />
-                      </DockPanel>
-                    </DataTemplate>
-                  </Setter.Value>
-                </Setter>
-                <Setter Property="ContentTemplate">
-                  <Setter.Value>
-                    <DataTemplate x:DataType="xxx:LeftTabItem">
-                      <TreeView ItemsSource="{Binding HierarchicalContent}">
-                        <TreeView.ItemTemplate>
-                          <TreeDataTemplate ItemsSource="{Binding Subfiles}">
-                            <TextBlock Text="{Binding Name}"/>
-                          </TreeDataTemplate>
-                        </TreeView.ItemTemplate>
-                      </TreeView>
-                    </DataTemplate>
-                  </Setter.Value>
-                </Setter>
-                <Setter Property="MinHeight" Value="30" />
-              </Style>
-            </TabControl.Styles>
-          </TabControl>
-        </DockPanel>
+        <Grid.RowDefinitions>
+          <!-- Left-upper-space-template -->
+          <RowDefinition Height="*" MinHeight="50" />
+          <!-- Splitter-template -->
+          <RowDefinition Height="1" MaxHeight="1" />
+          <!-- Left-bottom-space-template -->
+          <RowDefinition Height="*" MinHeight="50" />
+        </Grid.RowDefinitions>
+
+        <!-- Left-upper-space -->
+        <Grid Grid.Row="0">
+          <DockPanel>
+            <TabControl Name="LeftSpace">
+              <TabControl.Styles>
+                <Style Selector="TabItem">
+                  <Setter Property="HeaderTemplate">
+                    <Setter.Value>
+                      <DataTemplate x:DataType="xxx:LeftUpperTabItem">
+                        <DockPanel>
+                          <Button DockPanel.Dock="Right" 
+                                  Click="Delete_Click"
+                                  Height="15"
+                                  Width="15"
+                                  FontSize="10"
+                                  Margin="10 0 0 0"
+                                  VerticalAlignment="Center"
+                                  Padding="4 0 0 0">x</Button>
+                          <TextBlock DockPanel.Dock="Left"
+                                     Text="{Binding Header}"
+                                     FontSize="15"
+                                     FontFamily="Arial"
+                                     VerticalAlignment="Center" />
+                        </DockPanel>
+                      </DataTemplate>
+                    </Setter.Value>
+                  </Setter>
+                  <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                      <DataTemplate x:DataType="xxx:LeftUpperTabItem">
+                        <TreeView ItemsSource="{Binding TreeViewContent}">
+                          <TreeView.ItemTemplate>
+                            <TreeDataTemplate ItemsSource="{Binding Subnodes}">
+                              <TextBlock Text="{Binding NodeTitle}"/>
+                            </TreeDataTemplate>
+                          </TreeView.ItemTemplate>
+                        </TreeView>
+                      </DataTemplate>
+                    </Setter.Value>
+                  </Setter>
+                  <Setter Property="MinHeight" Value="30" />
+                </Style>
+              </TabControl.Styles>
+            </TabControl>
+          </DockPanel>
+        </Grid>
+
+        <!-- Splitter -->
+        <GridSplitter Grid.Row="1"
+                      Margin="0, -5"
+                      BorderThickness="0, 5"
+                      BorderBrush="Transparent"
+                      Background="Black"
+                      ResizeDirection="Rows"
+                      ResizeBehavior="PreviousAndNext"
+                      HorizontalAlignment="Stretch"/>
+
+        <!-- Left-bottom-space-template -->
+        <Grid Grid.Row="2" ></Grid>
       </Grid>
 
       <!-- Splitter -->
@@ -136,7 +161,7 @@
       <!-- Right-space -->
       <Grid Grid.Column="2">
         <Grid.RowDefinitions>
-          <!-- Workspace-template -->
+          <!-- Central-and-right-space-template -->
           <RowDefinition Height="*" MinHeight="100"/>
           <!-- Splitter-template -->
           <RowDefinition Height="1" MaxHeight="1"/>
@@ -144,9 +169,32 @@
           <RowDefinition Height="150" MinHeight="100"/>
         </Grid.RowDefinitions>
 
-        <!-- Workspace -->
+        <!-- Central-and-right-right-space-template -->
         <Grid Grid.Row="0">
-          
+          <Grid.ColumnDefinitions>
+            <!-- Central-space-template -->
+            <ColumnDefinition Width="*" MinWidth="500" />
+            <!-- Splitter-template -->
+            <ColumnDefinition Width="1" MaxWidth="1" />
+            <!-- Right-right-space-template -->
+            <ColumnDefinition Width="0" MaxWidth="150"/>
+          </Grid.ColumnDefinitions>
+
+          <!-- Central-space -->
+          <Grid Grid.Column="0"></Grid>
+
+          <!-- Splitter -->
+          <GridSplitter Grid.Column="1"
+                    Margin="-5, 0"
+                    BorderThickness="5, 0"
+                    BorderBrush="Transparent"
+                    Background="Black"
+                    ResizeDirection="Columns"
+                    ResizeBehavior="PreviousAndNext"
+                    HorizontalAlignment="Stretch"/>
+
+          <!-- Right-right-space -->
+          <Grid Grid.Column="2"></Grid>
         </Grid>
 
         <!-- Splitter -->
@@ -180,7 +228,7 @@
                                   VerticalAlignment="Center"
                                   Padding="4 0 0 0">x</Button>
                           <TextBlock DockPanel.Dock="Left"
-                                     Text="{Binding Title}"
+                                     Text="{Binding Header}"
                                      FontSize="15"
                                      FontFamily="Arial"
                                      VerticalAlignment="Center" />

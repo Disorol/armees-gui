@@ -16,10 +16,10 @@ namespace plc_soldier_avalonia.Model
     public class Node
     {
         // Collection of child files for this directory. Can be Null for storing files.
-        public ObservableCollection<Node>? Subfiles { get; set; }
+        public ObservableCollection<Node>? Subnodes { get; set; }
 
         // File or directory title. Maybe Null so that empty folders can be opened.
-        public string? Name { get; set; }
+        public string? NodeTitle { get; set; }
 
         // The path to this file. Maybe Null so that empty folders can be opened.
         public string? PathString { get; set; }
@@ -29,9 +29,9 @@ namespace plc_soldier_avalonia.Model
         {
             PathString = path;
 
-            Name = System.IO.Path.GetFileName(path);
+            NodeTitle = System.IO.Path.GetFileName(path);
 
-            Subfiles = new ObservableCollection<Node>();
+            Subnodes = new ObservableCollection<Node>();
 
             if (Directory.GetFileSystemEntries(path, "*", SearchOption.TopDirectoryOnly).Length > 0)
             {
@@ -41,7 +41,7 @@ namespace plc_soldier_avalonia.Model
                     {
                         Node node = new Node(subpath);
 
-                        Subfiles.Add(node);
+                        Subnodes.Add(node);
                     }
                 }
 
@@ -51,7 +51,7 @@ namespace plc_soldier_avalonia.Model
                     {
                         Node node = new Node(subpath, true);
 
-                        Subfiles.Add(node);
+                        Subnodes.Add(node);
                     }
                 }
             }
@@ -61,7 +61,7 @@ namespace plc_soldier_avalonia.Model
 
                 Node node = new Node(true);
 
-                Subfiles.Add(node);
+                Subnodes.Add(node);
             }
         }
 
@@ -70,7 +70,7 @@ namespace plc_soldier_avalonia.Model
         {
             PathString = path;
 
-            Name = System.IO.Path.GetFileName(path);
+            NodeTitle = System.IO.Path.GetFileName(path);
         }
 
         // Overloaded constructor for opening empty directories

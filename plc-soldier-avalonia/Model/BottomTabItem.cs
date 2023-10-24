@@ -8,7 +8,7 @@ namespace plc_soldier_avalonia.Model
 {
     public class BottomTabItem : ITabItem
     {
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public string Header { get; set; }
+        public string? Content { get; set; }
     }
 }

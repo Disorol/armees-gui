@@ -10,29 +10,29 @@ namespace plc_soldier_avalonia
         // List of content for bottom space TabItems
         List<BottomTabItem> bottomItems = new List<BottomTabItem>()
         {
-            new BottomTabItem(){Content = "какой-то текст", Title = "Ошибки" },
-            new BottomTabItem(){Content = "какой-то текст", Title = "Поиск результатов" },
-            new BottomTabItem(){Content = "какой-то текст", Title = "Просмотр" },
+            new BottomTabItem(){Content = "какой-то текст", Header = "Ошибки" },
+            new BottomTabItem(){Content = "какой-то текст", Header = "Поиск результатов" },
+            new BottomTabItem(){Content = "какой-то текст", Header = "Просмотр" },
         };
 
         // List of content for left space TabItems
-        List<LeftTabItem> leftItems = new List<LeftTabItem>()
+        List<LeftUpperTabItem> leftItems = new List<LeftUpperTabItem>()
         {
-            new LeftTabItem(){Title = "Логический органайзер", HierarchicalContent = new ObservableCollection<Node> { new Node(@"C:\Users\T\source\repos\plc-soldier-wpf") } },
-            new LeftTabItem(){Title = "Контроллер-органайзер", HierarchicalContent = null },
+            new LeftUpperTabItem(){Header = "Логический органайзер", TreeViewContent = new ObservableCollection<Node> { new Node(@"C:\Users\T\source\repos\plc-soldier-wpf") } },
+            new LeftUpperTabItem(){Header = "Контроллер-органайзер", TreeViewContent = null },
         };
 
         // A list containing bottom space Tabitems
         public ObservableCollection<BottomTabItem> BottomContent { get; set; }
         // A list containing left space Tabitems
-        public ObservableCollection<LeftTabItem> LeftContent { get; set; }
+        public ObservableCollection<LeftUpperTabItem> LeftContent { get; set; }
 
         public MainWindow()
         {
             BottomContent = new ObservableCollection<BottomTabItem>();
-            LeftContent = new ObservableCollection<LeftTabItem>();
+            LeftContent = new ObservableCollection<LeftUpperTabItem>();
 
-            AddingTabItemsAtStartup(new List<LeftTabItem>() { leftItems[0] }, 
+            AddingTabItemsAtStartup(new List<LeftUpperTabItem>() { leftItems[0] }, 
                                     new List<BottomTabItem>() { bottomItems[0] });
 
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace plc_soldier_avalonia
         }
 
         // Adding TabItems to TabControl at the startup
-        private void AddingTabItemsAtStartup(List<LeftTabItem> leftItemsStartup, List<BottomTabItem> bottomItemsStartup)
+        private void AddingTabItemsAtStartup(List<LeftUpperTabItem> leftItemsStartup, List<BottomTabItem> bottomItemsStartup)
         {
             foreach (var leftItem in leftItemsStartup)
             { 
@@ -64,7 +64,7 @@ namespace plc_soldier_avalonia
                 {
                     BottomContent.Remove(bottomExample);
                 } 
-                else if (b.DataContext is LeftTabItem leftExample)
+                else if (b.DataContext is LeftUpperTabItem leftExample)
                 {
                     LeftContent.Remove(leftExample);
                 }
