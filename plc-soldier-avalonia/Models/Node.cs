@@ -5,6 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+using plc_soldier_avalonia.Models;
 
 namespace plc_soldier_avalonia.Model
 {
@@ -24,12 +27,17 @@ namespace plc_soldier_avalonia.Model
         // The path to this file. Maybe Null so that empty folders can be opened.
         public string? PathString { get; set; }
 
+        // The path to the icon. Maybe Null for empty folders.
+        public Bitmap? Icon { get; set; }
+
         // Overloaded Constructor for the directory path.
         public Node(string path)
         {
             PathString = path;
 
             NodeTitle = System.IO.Path.GetFileName(path);
+
+            Icon = new Bitmap(AssetLoader.Open(new Uri("avares://plc-soldier-avalonia/assets/images/icons/dock.png")));
 
             Subnodes = new ObservableCollection<Node>();
 
@@ -71,6 +79,10 @@ namespace plc_soldier_avalonia.Model
             PathString = path;
 
             NodeTitle = System.IO.Path.GetFileName(path);
+
+            FileInfo fileInfo = new FileInfo(path);
+
+            Icon = new Bitmap(AssetLoader.Open(ExtensionToIcon.GetIcon(fileInfo.Extension)));
         }
 
         // Overloaded constructor for opening empty directories

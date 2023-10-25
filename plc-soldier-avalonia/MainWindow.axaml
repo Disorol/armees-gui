@@ -118,7 +118,11 @@
                         <TreeView ItemsSource="{Binding TreeViewContent}">
                           <TreeView.ItemTemplate>
                             <TreeDataTemplate ItemsSource="{Binding Subnodes}">
-                              <TextBlock Text="{Binding NodeTitle}"/>
+                              <DockPanel>
+                                <Image Width="10" Height="10" Source="{Binding Icon}" />
+                                <TextBlock Text=" " />
+                                <TextBlock Text="{Binding NodeTitle}"/>
+                              </DockPanel>
                             </TreeDataTemplate>
                           </TreeView.ItemTemplate>
                         </TreeView>
