@@ -9,7 +9,7 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using plc_soldier_avalonia.Models;
 
-namespace plc_soldier_avalonia.Model
+namespace plc_soldier_avalonia.Models
 {
     /*
         A class with a recursive overloaded constructor for traversing through all directories

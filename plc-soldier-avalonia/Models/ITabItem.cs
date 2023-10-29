@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace plc_soldier_avalonia.Model
+namespace plc_soldier_avalonia.Models
 {
     public interface ITabItem
     {

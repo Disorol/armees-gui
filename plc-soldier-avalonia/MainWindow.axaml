@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:xxx="using:plc_soldier_avalonia.Model"
+        xmlns:xxx="using:plc_soldier_avalonia.Models"
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="540"
         x:Class="plc_soldier_avalonia.MainWindow"
         RequestedThemeVariant="Light"
@@ -11,13 +11,13 @@
   <Grid>
     <Grid.RowDefinitions>
       <!-- Menu-template -->
-      <RowDefinition Height="20"/>
+      <RowDefinition Height="20" MinHeight="20"/>
       <!-- Tools-template -->
-      <RowDefinition Height="100" MinHeight="50"/>
+      <RowDefinition Height="100"/>
       <!-- Splitter-template -->
       <RowDefinition Height="1" MaxHeight="1"/>
       <!-- Main-space-template -->
-      <RowDefinition Height="*" MinHeight="300" />
+      <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
     <!-- Menu -->
@@ -36,6 +36,9 @@
           <MenuItem Header="Errors" Click="Errors_Click" />
           <MenuItem Header="Search Results" Click="SearchResults_Click" />
           <MenuItem Header="Watch" Click="Watch_Click" />
+          <MenuItem Header="[Central-space]" Click="Central_Click" />
+          <MenuItem Header="[Left-bottom-space]" Click="LeftBottom_Click" />
+          <MenuItem Header="[Right-Right-space]" Click="RightRight_Click" />
         </MenuItem>
         <MenuItem Header="Search"></MenuItem>
         <MenuItem Header="Logic"></MenuItem>
@@ -64,31 +67,31 @@
                   HorizontalAlignment="Stretch"/>
 
     <!-- Main-space -->
-    <Grid Grid.Row="3">
+    <Grid Grid.Row="3" Name="LR_Grid">
       <Grid.ColumnDefinitions>
         <!-- Left-space-template -->
-        <ColumnDefinition Width="300" MinWidth="150"/>
+        <ColumnDefinition Width="300"/>
         <!-- Splitter-template -->
         <ColumnDefinition Width="1" MaxWidth="1"/>
         <!-- Right-space-template -->
-        <ColumnDefinition Width="*" MinWidth="150" />
+        <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
 
       <!-- Left-space -->
-      <Grid Grid.Column="0">
+      <Grid Grid.Column="0" Name="LULB_Grid">
         <Grid.RowDefinitions>
           <!-- Left-upper-space-template -->
-          <RowDefinition Height="*" MinHeight="50" />
+          <RowDefinition Height="*"/>
           <!-- Splitter-template -->
           <RowDefinition Height="1" MaxHeight="1" />
           <!-- Left-bottom-space-template -->
-          <RowDefinition Height="*" MinHeight="50" />
+          <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Left-upper-space -->
         <Grid Grid.Row="0">
           <DockPanel>
-            <TabControl Name="LeftSpace">
+            <TabControl Name="LeftUpperSpace">
               <TabControl.Styles>
                 <Style Selector="TabItem">
                   <Setter Property="HeaderTemplate">
@@ -168,7 +171,66 @@
                       HorizontalAlignment="Stretch"/>
 
         <!-- Left-bottom-space-template -->
-        <Grid Grid.Row="2" ></Grid>
+        <Grid Grid.Row="2" >
+          <DockPanel>
+            <TabControl Name="LeftBottomSpace">
+              <TabControl.Styles>
+                <Style Selector="TabItem">
+                  <Setter Property="HeaderTemplate">
+                    <Setter.Value>
+                      <DataTemplate x:DataType="xxx:LeftBottomTabItem">
+                        <DockPanel>
+                          <Button DockPanel.Dock="Right" Click="Delete_Click">
+                            <Button.Styles>
+                              <Style>
+                                <Style.Resources>
+                                  <SolidColorBrush x:Key="ThemeBorderMidBrush">Transparent</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ThemeControlHighBrush">Transparent</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ButtonBorderBrush">Transparent</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ButtonBackground">Transparent</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ButtonBackgroundPointerOver">#e4e4e4</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ButtonBackgroundPressed">#cfcfcf</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ButtonForeground">#767676</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ButtonForegroundPointerOver">#616161</SolidColorBrush>
+                                  <SolidColorBrush x:Key="ButtonForegroundPressed">#616161</SolidColorBrush>
+                                </Style.Resources>
+                                <Setter Property="Width" Value="17"/>
+                                <Setter Property="Height" Value="17"/>
+                                <Setter Property="CornerRadius" Value="17"/>
+                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="Margin" Value="5 0 0 0" />
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                              </Style>
+                            </Button.Styles>
+                            <Path
+                              Fill="{Binding $parent.Foreground}"
+                              Stretch="Fill"
+                              Margin="5"
+                              Data="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z">
+                            </Path>
+                          </Button>
+                          <TextBlock DockPanel.Dock="Left"
+                                     Text="{Binding Header}"
+                                     FontSize="15"
+                                     FontFamily="Arial"
+                                     VerticalAlignment="Center" />
+                        </DockPanel>
+                      </DataTemplate>
+                    </Setter.Value>
+                  </Setter>
+                  <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                      <DataTemplate x:DataType="xxx:LeftBottomTabItem">
+                        <TextBlock Text="{Binding Content}"/>
+                      </DataTemplate>
+                    </Setter.Value>
+                  </Setter>
+                  <Setter Property="MinHeight" Value="30" />
+                </Style>
+              </TabControl.Styles>
+            </TabControl>
+          </DockPanel>
+        </Grid>
       </Grid>
 
       <!-- Splitter -->
@@ -184,42 +246,160 @@
                     HorizontalAlignment="Stretch"/>
 
       <!-- Right-space -->
-      <Grid Grid.Column="2">
+      <Grid Grid.Column="2" Name="CRB_Grid">
         <Grid.RowDefinitions>
           <!-- Central-and-right-space-template -->
-          <RowDefinition Height="*" MinHeight="100"/>
+          <RowDefinition Height="*"/>
           <!-- Splitter-template -->
           <RowDefinition Height="1" MaxHeight="1"/>
           <!-- Bottom-space-template -->
-          <RowDefinition Height="150" MinHeight="100"/>
+          <RowDefinition Height="150" />
         </Grid.RowDefinitions>
 
         <!-- Central-and-right-right-space-template -->
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Name="CRR_Grid">
           <Grid.ColumnDefinitions>
             <!-- Central-space-template -->
-            <ColumnDefinition Width="*" MinWidth="500" />
+            <ColumnDefinition Width="*"/>
             <!-- Splitter-template -->
             <ColumnDefinition Width="1" MaxWidth="1" />
             <!-- Right-right-space-template -->
-            <ColumnDefinition Width="0" MaxWidth="150"/>
+            <ColumnDefinition Width="150"/>
           </Grid.ColumnDefinitions>
 
           <!-- Central-space -->
-          <Grid Grid.Column="0"></Grid>
+          <Grid Grid.Column="0">
+            <DockPanel>
+              <TabControl Name="CentralSpace">
+                <TabControl.Styles>
+                  <Style Selector="TabItem">
+                    <Setter Property="HeaderTemplate">
+                      <Setter.Value>
+                        <DataTemplate x:DataType="xxx:CentralTabItem">
+                          <DockPanel>
+                            <Button DockPanel.Dock="Right" Click="Delete_Click">
+                              <Button.Styles>
+                                <Style>
+                                  <Style.Resources>
+                                    <SolidColorBrush x:Key="ThemeBorderMidBrush">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ThemeControlHighBrush">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBorderBrush">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBackground">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver">#e4e4e4</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPressed">#cfcfcf</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonForeground">#767676</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver">#616161</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonForegroundPressed">#616161</SolidColorBrush>
+                                  </Style.Resources>
+                                  <Setter Property="Width" Value="17"/>
+                                  <Setter Property="Height" Value="17"/>
+                                  <Setter Property="CornerRadius" Value="17"/>
+                                  <Setter Property="Padding" Value="0"/>
+                                  <Setter Property="Margin" Value="5 0 0 0" />
+                                  <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                              </Button.Styles>
+                              <Path
+                                Fill="{Binding $parent.Foreground}"
+                                Stretch="Fill"
+                                Margin="5"
+                                Data="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z">
+                              </Path>
+                            </Button>
+                            <TextBlock DockPanel.Dock="Left"
+                                       Text="{Binding Header}"
+                                       FontSize="15"
+                                       FontFamily="Arial"
+                                       VerticalAlignment="Center" />
+                          </DockPanel>
+                        </DataTemplate>
+                      </Setter.Value>
+                    </Setter>
+                    <Setter Property="ContentTemplate">
+                      <Setter.Value>
+                        <DataTemplate x:DataType="xxx:CentralTabItem">
+                          <TextBlock Text="{Binding Content}"/>
+                        </DataTemplate>
+                      </Setter.Value>
+                    </Setter>
+                    <Setter Property="MinHeight" Value="30" />
+                  </Style>
+                </TabControl.Styles>
+              </TabControl>
+            </DockPanel>
+          </Grid>
 
           <!-- Splitter -->
           <GridSplitter Grid.Column="1"
-                    Margin="-5, 0"
-                    BorderThickness="5, 0"
-                    BorderBrush="Transparent"
-                    Background="Black"
-                    ResizeDirection="Columns"
-                    ResizeBehavior="PreviousAndNext"
-                    HorizontalAlignment="Stretch"/>
+                        Margin="-5, 0"
+                        BorderThickness="5, 0"
+                        BorderBrush="Transparent"
+                        Background="Black"
+                        ResizeDirection="Columns"
+                        ResizeBehavior="PreviousAndNext"
+                        HorizontalAlignment="Stretch"/>
 
           <!-- Right-right-space -->
-          <Grid Grid.Column="2"></Grid>
+          <Grid Grid.Column="2">
+            <DockPanel>
+              <TabControl Name="RightRightSpace">
+                <TabControl.Styles>
+                  <Style Selector="TabItem">
+                    <Setter Property="HeaderTemplate">
+                      <Setter.Value>
+                        <DataTemplate x:DataType="xxx:RightRightTabItem">
+                          <DockPanel>
+                            <Button DockPanel.Dock="Right" Click="Delete_Click">
+                              <Button.Styles>
+                                <Style>
+                                  <Style.Resources>
+                                    <SolidColorBrush x:Key="ThemeBorderMidBrush">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ThemeControlHighBrush">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBorderBrush">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBackground">Transparent</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPointerOver">#e4e4e4</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonBackgroundPressed">#cfcfcf</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonForeground">#767676</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver">#616161</SolidColorBrush>
+                                    <SolidColorBrush x:Key="ButtonForegroundPressed">#616161</SolidColorBrush>
+                                  </Style.Resources>
+                                  <Setter Property="Width" Value="17"/>
+                                  <Setter Property="Height" Value="17"/>
+                                  <Setter Property="CornerRadius" Value="17"/>
+                                  <Setter Property="Padding" Value="0"/>
+                                  <Setter Property="Margin" Value="5 0 0 0" />
+                                  <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                              </Button.Styles>
+                              <Path
+                                Fill="{Binding $parent.Foreground}"
+                                Stretch="Fill"
+                                Margin="5"
+                                Data="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z">
+                              </Path>
+                            </Button>
+                            <TextBlock DockPanel.Dock="Left"
+                                       Text="{Binding Header}"
+                                       FontSize="15"
+                                       FontFamily="Arial"
+                                       VerticalAlignment="Center" />
+                          </DockPanel>
+                        </DataTemplate>
+                      </Setter.Value>
+                    </Setter>
+                    <Setter Property="ContentTemplate">
+                      <Setter.Value>
+                        <DataTemplate x:DataType="xxx:RightRightTabItem">
+                          <TextBlock Text="{Binding Content}"/>
+                        </DataTemplate>
+                      </Setter.Value>
+                    </Setter>
+                    <Setter Property="MinHeight" Value="30" />
+                  </Style>
+                </TabControl.Styles>
+              </TabControl>
+            </DockPanel>
+          </Grid>
         </Grid>
 
         <!-- Splitter -->
