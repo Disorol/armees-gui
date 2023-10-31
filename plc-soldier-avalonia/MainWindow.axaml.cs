@@ -120,7 +120,8 @@ namespace plc_soldier_avalonia
 
                     if (BottomContent.Count == 0 ) 
                     {
-                        TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
+                        if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
+                            TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
 
                         if ((CentralContent.Count > 0)||(RightRightContent.Count > 0))  
                         {
@@ -129,8 +130,8 @@ namespace plc_soldier_avalonia
                         }
                         else
                         {
-                            TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
-                            TabStatus.gridLengths["CRB_Width"] = LR_Grid.ColumnDefinitions[2].Width;
+                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
@@ -139,45 +140,51 @@ namespace plc_soldier_avalonia
                 } 
                 else if (b.DataContext is LeftUpperTabItem leftExample)
                 {
-                    TabStatus.gridLengths["LeftUpper_Width"] = LULB_Grid.RowDefinitions[0].Height;
-
-                    if (LeftBottomContent.Count == 0)
-                    {
-                        TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
-
-                        LR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
-                        LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
-                    }
-                    else
-                    {
-                        TabStatus.gridLengths["LeftBottom_Width"] = LULB_Grid.RowDefinitions[2].Height;
-
-                        LULB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
-                        LULB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
-                    }
-
                     LeftUpperContent.Remove(leftExample);
-                }
-                else if (b.DataContext is LeftBottomTabItem leftBottomExample)
-                {
-                    TabStatus.gridLengths["LeftBottom_Width"] = LULB_Grid.RowDefinitions[2].Height;
 
                     if (LeftUpperContent.Count == 0)
                     {
-                        TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
+                        if (LULB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && LULB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
+                            TabStatus.gridLengths["LeftBottom_Height"] = LULB_Grid.RowDefinitions[2].Height;
 
-                        LR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
-                        LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+                        if (LeftBottomContent.Count == 0)
+                        {
+                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
+
+                            LR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
+                            LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+                        }
+                        else
+                        {
+                            LULB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
+                            LULB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
+                        }
                     }
-                    else
-                    {
-                        TabStatus.gridLengths["LeftUpper_Width"] = LULB_Grid.RowDefinitions[0].Height;
-
-                        LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
-                        LULB_Grid.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Pixel);
-                    }
-
+                }
+                else if (b.DataContext is LeftBottomTabItem leftBottomExample)
+                {
                     LeftBottomContent.Remove(leftBottomExample);
+
+                    if (LeftBottomContent.Count == 0)
+                    {
+                        if (LULB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && LULB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
+                            TabStatus.gridLengths["LeftBottom_Height"] = LULB_Grid.RowDefinitions[2].Height;
+
+                        if (LeftUpperContent.Count == 0)
+                        {
+                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
+
+                            LR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
+                            LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+                        }
+                        else
+                        {
+                            LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
+                            LULB_Grid.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Pixel);
+                        }
+                    }  
                 }
                 else if (b.DataContext is RightRightTabItem rightRightExample)
                 {
@@ -185,12 +192,13 @@ namespace plc_soldier_avalonia
 
                     if (RightRightContent.Count == 0)
                     {
-                        TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[2].Width;
+                        if (CRR_Grid.ColumnDefinitions[2].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[2].Width != new GridLength(0, GridUnitType.Pixel))
+                            TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[2].Width;
 
                         if (CentralContent.Count == 0)
                         {
-                            TabStatus.gridLengths["CRR_Height"] = CRB_Grid.RowDefinitions[0].Height;
-                            TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
+                            if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
 
                             CRB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
                             CRB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
@@ -203,8 +211,8 @@ namespace plc_soldier_avalonia
 
                         if (BottomContent.Count == 0 && CentralContent.Count == 0)
                         {
-                            TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
-                            TabStatus.gridLengths["CRB_Width"] = LR_Grid.ColumnDefinitions[2].Width;
+                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
@@ -217,12 +225,13 @@ namespace plc_soldier_avalonia
 
                     if (CentralContent.Count == 0)
                     {
-                        TabStatus.gridLengths["Central_Width"] = CRR_Grid.ColumnDefinitions[0].Width;
+                        if (CRR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                            TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[0].Width;
 
                         if (RightRightContent.Count == 0)
                         {
-                            TabStatus.gridLengths["CRR_Height"] = CRB_Grid.RowDefinitions[0].Height;
-                            TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
+                            if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
 
                             CRB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
                             CRB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
@@ -235,8 +244,8 @@ namespace plc_soldier_avalonia
 
                         if (BottomContent.Count == 0 && RightRightContent.Count == 0)
                         {
-                            TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
-                            TabStatus.gridLengths["CRB_Width"] = LR_Grid.ColumnDefinitions[2].Width;
+                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
@@ -249,8 +258,8 @@ namespace plc_soldier_avalonia
         // Creating the Logical Organizer TabItem
         private void LogicalOrganizer_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            LeftExpansion();
             LeftUpperExpansion();
+            LULBExpansion();
 
             if (!LeftUpperContent.Contains(leftUpperItems[0])) LeftUpperContent.Add(leftUpperItems[0]);
         }
@@ -258,8 +267,8 @@ namespace plc_soldier_avalonia
         // Creating the Control Organizer TabItem
         private void ControllerOrganizer_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            LeftExpansion();
             LeftUpperExpansion();
+            LULBExpansion();
 
             if (!LeftUpperContent.Contains(leftUpperItems[1])) LeftUpperContent.Add(leftUpperItems[1]);
         }
@@ -314,7 +323,7 @@ namespace plc_soldier_avalonia
         // Creating the [Left-bottom-space] TabItem
         private void LeftBottom_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            LeftExpansion();
+            LULBExpansion();
             LeftBottomExpansion();
 
             if (!LeftBottomContent.Contains(leftBottomItems[0])) LeftBottomContent.Add(leftBottomItems[0]);
@@ -322,14 +331,18 @@ namespace plc_soldier_avalonia
 
         public void BottomExpansion()
         {
-            if ((CentralContent.Count == 0)&&(RightRightContent.Count == 0))
+            if (BottomContent.Count == 0) 
             {
-                CRB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
-                CRB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
-            }
-            else
-            {
-                CRB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["Bottom_Height"];
+                if ((CentralContent.Count == 0) && (RightRightContent.Count == 0))
+                {
+                    CRB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
+                    CRB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
+                }
+                else
+                {
+                    CRB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["Bottom_Height"];
+                    CRB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
+                }
             }
         }
 
@@ -339,12 +352,13 @@ namespace plc_soldier_avalonia
             { 
                 if (LeftUpperContent.Count == 0 && LeftBottomContent.Count == 0)
                 {
-
+                    LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+                    LR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
                 }
                 else
                 {
-                    LR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["CRB_Width"];
                     LR_Grid.ColumnDefinitions[0].Width = TabStatus.gridLengths["LULB_Width"];
+                    LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
                 }
             }
         }
@@ -360,7 +374,8 @@ namespace plc_soldier_avalonia
                 }
                 else
                 {
-                    CRR_Grid.ColumnDefinitions[0].Width = TabStatus.gridLengths["Central_Width"];
+                    CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+                    CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["RightRight_Width"];
                 }
             }
         }
@@ -376,8 +391,8 @@ namespace plc_soldier_avalonia
                 }
                 else
                 {
-                    LULB_Grid.RowDefinitions[0].Height = TabStatus.gridLengths["LeftUpper_Height"];
                     LULB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["LeftBottom_Height"];
+                    LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
                 }
             }
         }
@@ -393,13 +408,13 @@ namespace plc_soldier_avalonia
                 }
                 else
                 {
-                    LULB_Grid.RowDefinitions[0].Height = TabStatus.gridLengths["LeftUpper_Height"];
                     LULB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["LeftBottom_Height"];
+                    LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
                 }
             }
         }
 
-        public void LeftExpansion()
+        public void LULBExpansion()
         {
             if (LeftUpperContent.Count == 0 && LeftBottomContent.Count == 0)
             {
@@ -411,7 +426,7 @@ namespace plc_soldier_avalonia
                 else
                 {
                     LR_Grid.ColumnDefinitions[0].Width = TabStatus.gridLengths["LULB_Width"];
-                    LR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["CRB_Width"];
+                    LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
                 }
             }
         }
@@ -428,6 +443,7 @@ namespace plc_soldier_avalonia
                 else
                 {
                     CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["RightRight_Width"];
+                    CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                 }
             }
         }
@@ -443,8 +459,8 @@ namespace plc_soldier_avalonia
                 }
                 else
                 {
-                    CRB_Grid.RowDefinitions[0].Height = TabStatus.gridLengths["CRR_Height"];
                     CRB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["Bottom_Height"];
+                    CRB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
                 }
             }
         }

@@ -85,7 +85,7 @@
           <!-- Splitter-template -->
           <RowDefinition Height="1" MaxHeight="1" />
           <!-- Left-bottom-space-template -->
-          <RowDefinition Height="*"/>
+          <RowDefinition Height="220"/>
         </Grid.RowDefinitions>
 
         <!-- Left-upper-space -->
