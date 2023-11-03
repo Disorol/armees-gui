@@ -162,6 +162,7 @@
 
         <!-- Splitter -->
         <GridSplitter Grid.Row="1"
+                      Name="LULB_Splitter"
                       Margin="0, -5"
                       BorderThickness="0, 5"
                       BorderBrush="Transparent"
@@ -237,6 +238,7 @@
       <!-- Thanks to the margins, the capture area increases, 
            and the visible area decreases to the border -->
       <GridSplitter Grid.Column="1"
+                    Name="LR_Splitter"
                     Margin="-5, 0"
                     BorderThickness="5, 0"
                     BorderBrush="Transparent"
@@ -331,6 +333,7 @@
 
           <!-- Splitter -->
           <GridSplitter Grid.Column="1"
+                        Name="CRR_Splitter"
                         Margin="-5, 0"
                         BorderThickness="5, 0"
                         BorderBrush="Transparent"
@@ -406,6 +409,7 @@
         <!-- Thanks to the margins, the capture area increases, 
              and the visible area decreases to the border -->
         <GridSplitter Grid.Row="1"
+                      Name="CRB_Splitter"
                       Margin="0, -5"
                       BorderThickness="0, 5"
                       BorderBrush="Transparent"

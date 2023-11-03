@@ -127,6 +127,8 @@ namespace plc_soldier_avalonia
                         {
                             CRB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
                             CRB_Grid.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Pixel);
+
+                            CRB_Splitter.IsVisible = false;
                         }
                         else
                         {
@@ -135,6 +137,8 @@ namespace plc_soldier_avalonia
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
+
+                            LR_Splitter.IsVisible = false;
                         }
                     }
                 } 
@@ -154,11 +158,15 @@ namespace plc_soldier_avalonia
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+
+                            LR_Splitter.IsVisible = false;
                         }
                         else
                         {
                             LULB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
                             LULB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
+
+                            LULB_Splitter.IsVisible = false;
                         }
                     }
                 }
@@ -178,11 +186,15 @@ namespace plc_soldier_avalonia
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+
+                            LR_Splitter.IsVisible = false;
                         }
                         else
                         {
                             LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
                             LULB_Grid.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Pixel);
+
+                            LULB_Splitter.IsVisible = false;
                         }
                     }  
                 }
@@ -202,11 +214,15 @@ namespace plc_soldier_avalonia
 
                             CRB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
                             CRB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
+
+                            CRB_Splitter.IsVisible = false;
                         }
                         else
                         {
                             CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                             CRR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
+
+                            CRR_Splitter.IsVisible = false;
                         }
 
                         if (BottomContent.Count == 0 && CentralContent.Count == 0)
@@ -216,6 +232,8 @@ namespace plc_soldier_avalonia
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
+
+                            LR_Splitter.IsVisible = false;
                         }
                     }
                 }
@@ -235,11 +253,15 @@ namespace plc_soldier_avalonia
 
                             CRB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
                             CRB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
+
+                            CRB_Splitter.IsVisible = false;
                         }
                         else
                         {
                             CRR_Grid.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
                             CRR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+
+                            CRR_Splitter.IsVisible = false;
                         }
 
                         if (BottomContent.Count == 0 && RightRightContent.Count == 0)
@@ -249,6 +271,8 @@ namespace plc_soldier_avalonia
 
                             LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                             LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
+
+                            LR_Splitter.IsVisible = false;
                         }
                     }
                 }
@@ -342,6 +366,8 @@ namespace plc_soldier_avalonia
                 {
                     CRB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["Bottom_Height"];
                     CRB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
+
+                    CRB_Splitter.IsVisible = true;
                 }
             }
         }
@@ -359,6 +385,8 @@ namespace plc_soldier_avalonia
                 {
                     LR_Grid.ColumnDefinitions[0].Width = TabStatus.gridLengths["LULB_Width"];
                     LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+
+                    LR_Splitter.IsVisible = true;
                 }
             }
         }
@@ -376,6 +404,8 @@ namespace plc_soldier_avalonia
                 {
                     CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                     CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["RightRight_Width"];
+
+                    CRR_Splitter.IsVisible = true;
                 }
             }
         }
@@ -393,6 +423,8 @@ namespace plc_soldier_avalonia
                 {
                     LULB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["LeftBottom_Height"];
                     LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
+
+                    LULB_Splitter.IsVisible = true;
                 }
             }
         }
@@ -410,6 +442,8 @@ namespace plc_soldier_avalonia
                 {
                     LULB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["LeftBottom_Height"];
                     LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
+
+                    LULB_Splitter.IsVisible = true;
                 }
             }
         }
@@ -427,6 +461,8 @@ namespace plc_soldier_avalonia
                 {
                     LR_Grid.ColumnDefinitions[0].Width = TabStatus.gridLengths["LULB_Width"];
                     LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
+
+                    LR_Splitter.IsVisible = true;
                 }
             }
         }
@@ -444,6 +480,8 @@ namespace plc_soldier_avalonia
                 {
                     CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["RightRight_Width"];
                     CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+
+                    CRR_Splitter.IsVisible = true;
                 }
             }
         }
@@ -461,6 +499,8 @@ namespace plc_soldier_avalonia
                 {
                     CRB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["Bottom_Height"];
                     CRB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
+
+                    CRB_Splitter.IsVisible = true;
                 }
             }
         }
