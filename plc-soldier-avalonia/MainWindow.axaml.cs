@@ -207,7 +207,17 @@ namespace plc_soldier_avalonia
                         if (CRR_Grid.ColumnDefinitions[2].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[2].Width != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[2].Width;
 
-                        if (CentralContent.Count == 0)
+                        if (BottomContent.Count == 0 && CentralContent.Count == 0)
+                        {
+                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
+
+                            LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+                            LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
+
+                            LR_Splitter.IsVisible = false;
+                        }
+                        else if (CentralContent.Count == 0)
                         {
                             if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
@@ -223,18 +233,7 @@ namespace plc_soldier_avalonia
                             CRR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
 
                             CRR_Splitter.IsVisible = false;
-                        }
-
-                        if (BottomContent.Count == 0 && CentralContent.Count == 0)
-                        {
-                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
-                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
-
-                            LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
-                            LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
-
-                            LR_Splitter.IsVisible = false;
-                        }
+                        }    
                     }
                 }
                 else if (b.DataContext is CentralTabItem centralExample)
@@ -246,7 +245,17 @@ namespace plc_soldier_avalonia
                         if (CRR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[0].Width;
 
-                        if (RightRightContent.Count == 0)
+                        if (BottomContent.Count == 0 && RightRightContent.Count == 0)
+                        {
+                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
+                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
+
+                            LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
+                            LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
+
+                            LR_Splitter.IsVisible = false;
+                        }
+                        else if (RightRightContent.Count == 0)
                         {
                             if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
@@ -262,17 +271,6 @@ namespace plc_soldier_avalonia
                             CRR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
 
                             CRR_Splitter.IsVisible = false;
-                        }
-
-                        if (BottomContent.Count == 0 && RightRightContent.Count == 0)
-                        {
-                            if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
-                                TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
-
-                            LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
-                            LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
-
-                            LR_Splitter.IsVisible = false;
                         }
                     }
                 }
