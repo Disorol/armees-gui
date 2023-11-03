@@ -114,12 +114,16 @@ namespace plc_soldier_avalonia
         {
             if (sender is Button b)
             {
-                if (b.DataContext is BottomTabItem bottomExample) 
+                if (b.DataContext is BottomTabItem bottomExample) // Removing BottomTabItem
                 {
                     BottomContent.Remove(bottomExample);
 
                     if (BottomContent.Count == 0 ) 
                     {
+                        /* 
+                            Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                            It is necessary to record only the initial pixel values.
+                        */
                         if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
 
@@ -132,6 +136,10 @@ namespace plc_soldier_avalonia
                         }
                         else
                         {
+                            /* 
+                                Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                                It is necessary to record only the initial pixel values.
+                            */
                             if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
@@ -142,17 +150,25 @@ namespace plc_soldier_avalonia
                         }
                     }
                 } 
-                else if (b.DataContext is LeftUpperTabItem leftExample)
+                else if (b.DataContext is LeftUpperTabItem leftExample) // Removing LeftUpperTabItem
                 {
                     LeftUpperContent.Remove(leftExample);
 
                     if (LeftUpperContent.Count == 0)
                     {
+                        /* 
+                            Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                            It is necessary to record only the initial pixel values.
+                        */
                         if (LULB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && LULB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["LeftBottom_Height"] = LULB_Grid.RowDefinitions[2].Height;
 
                         if (LeftBottomContent.Count == 0)
                         {
+                            /* 
+                                Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                                It is necessary to record only the initial pixel values.
+                            */
                             if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
@@ -170,17 +186,25 @@ namespace plc_soldier_avalonia
                         }
                     }
                 }
-                else if (b.DataContext is LeftBottomTabItem leftBottomExample)
+                else if (b.DataContext is LeftBottomTabItem leftBottomExample) // Removing LeftBottomTabItem
                 {
                     LeftBottomContent.Remove(leftBottomExample);
 
                     if (LeftBottomContent.Count == 0)
                     {
+                        /* 
+                            Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                            It is necessary to record only the initial pixel values.
+                        */
                         if (LULB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && LULB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["LeftBottom_Height"] = LULB_Grid.RowDefinitions[2].Height;
 
                         if (LeftUpperContent.Count == 0)
                         {
+                            /* 
+                                Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                                It is necessary to record only the initial pixel values.
+                            */
                             if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
@@ -198,17 +222,25 @@ namespace plc_soldier_avalonia
                         }
                     }  
                 }
-                else if (b.DataContext is RightRightTabItem rightRightExample)
+                else if (b.DataContext is RightRightTabItem rightRightExample) // Removing RightRightTabItem
                 {
                     RightRightContent.Remove(rightRightExample);
 
                     if (RightRightContent.Count == 0)
                     {
+                        /* 
+                            Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                            It is necessary to record only the initial pixel values.
+                        */
                         if (CRR_Grid.ColumnDefinitions[2].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[2].Width != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[2].Width;
 
                         if (BottomContent.Count == 0 && CentralContent.Count == 0)
                         {
+                            /* 
+                                Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                                It is necessary to record only the initial pixel values.
+                            */
                             if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
@@ -219,6 +251,10 @@ namespace plc_soldier_avalonia
                         }
                         else if (CentralContent.Count == 0)
                         {
+                            /* 
+                                Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                                It is necessary to record only the initial pixel values.
+                            */
                             if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
 
@@ -236,17 +272,25 @@ namespace plc_soldier_avalonia
                         }    
                     }
                 }
-                else if (b.DataContext is CentralTabItem centralExample)
+                else if (b.DataContext is CentralTabItem centralExample) // Removing CentralTabItem
                 {
                     CentralContent.Remove(centralExample);
 
                     if (CentralContent.Count == 0)
                     {
+                        /* 
+                            Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                            It is necessary to record only the initial pixel values.
+                        */
                         if (CRR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[0].Width;
 
                         if (BottomContent.Count == 0 && RightRightContent.Count == 0)
                         {
+                            /* 
+                                Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                                It is necessary to record only the initial pixel values.
+                            */
                             if (LR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && LR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["LULB_Width"] = LR_Grid.ColumnDefinitions[0].Width;
 
@@ -257,6 +301,10 @@ namespace plc_soldier_avalonia
                         }
                         else if (RightRightContent.Count == 0)
                         {
+                            /* 
+                                Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
+                                It is necessary to record only the initial pixel values.
+                            */
                             if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                                 TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
 

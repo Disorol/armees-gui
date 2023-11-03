@@ -10,16 +10,18 @@ namespace plc_soldier_avalonia.Models
 {
     public static class TabStatus
     {
+        /*  
+            Collection of the original sizes set before closing, tabs.
+
+            Only the size values of RightRightSpace, BottomSpace, LeftBottomSpace and LeftSpace are stored,
+            because the size values of neighboring spaces are set by a star.
+        */
         public static Dictionary<string, GridLength> gridLengths = new Dictionary<string, GridLength> 
         {
-            {"Central_Width", new GridLength()},
             {"RightRight_Width", new GridLength()},
             {"Bottom_Height", new GridLength()},
             {"LULB_Width", new GridLength()},
-            {"LeftUpper_Height", new GridLength()},
             {"LeftBottom_Height", new GridLength()},
-            {"CRR_Height", new GridLength()},
-            {"CRB_Width", new GridLength()},
         };
     }
 }
