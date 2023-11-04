@@ -25,19 +25,19 @@ namespace plc_soldier_avalonia
         // List of content for left bottom space TabItems
         List<LeftBottomTabItem> leftBottomItems = new List<LeftBottomTabItem>()
         {
-            new LeftBottomTabItem(){Content = "какой-то текст", Header = "Left-bottom-space" },
+            new LeftBottomTabItem(){Content = "какой-то текст", Header = "Ћева€ нижн€€ область" },
         };
 
         // List of content for far right space TabItems
         List<FarRightTabItem> farRightItems = new List<FarRightTabItem>()
         {
-            new FarRightTabItem(){Content = "какой-то текст", Header = "Far-right-space" },
+            new FarRightTabItem(){Content = "какой-то текст", Header = " райн€€ права€ область" },
         };
 
         // List of content for central space TabItems
         List<CentralTabItem> centralItems = new List<CentralTabItem>()
         {
-            new CentralTabItem(){Content = "какой-то текст", Header = "Central-space" },
+            new CentralTabItem(){Content = "какой-то текст", Header = "÷ентральна€ область" },
         };
 
         // A list containing bottom space Tabitems
@@ -553,32 +553,57 @@ namespace plc_soldier_avalonia
 
         public void ApplicationTranslation(string language)
         {
+            this.IsVisible = false;
+
             int languageIndex = ApplicationLocalozation.GetLanguageIndex(language);
 
-            File_MenuItem.Header = ApplicationLocalozation.TopMenu["File"][languageIndex];
-            NewProject_MenuItem.Header = ApplicationLocalozation.TopMenu["New project"][languageIndex];
-            OpenProject_MenuItem.Header = ApplicationLocalozation.TopMenu["Open project"][languageIndex];
-            Settings_MenuItem.Header = ApplicationLocalozation.TopMenu["Settings"][languageIndex];
-            Language_MenuItem.Header = ApplicationLocalozation.TopMenu["Language"][languageIndex];
-            Russian_MenuItem.Header = ApplicationLocalozation.TopMenu["Russian"][languageIndex];
-            English_MenuItem.Header = ApplicationLocalozation.TopMenu["English"][languageIndex];
-            Exit_MenuItem.Header = ApplicationLocalozation.TopMenu["Exit"][languageIndex];
-            Edit_MenuItem.Header = ApplicationLocalozation.TopMenu["Edit"][languageIndex];
-            View_MenuItem.Header = ApplicationLocalozation.TopMenu["View"][languageIndex];
-            LogicalOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenu["Logical organizer"][languageIndex];
-            ControllerOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenu["Controller organizer"][languageIndex];
-            Errors_MenuItem.Header = ApplicationLocalozation.TopMenu["Errors"][languageIndex];
-            SearchResults_MenuItem.Header = ApplicationLocalozation.TopMenu["Search results"][languageIndex];
-            Watch_MenuItem.Header = ApplicationLocalozation.TopMenu["Watch"][languageIndex];
-            CentralSpace_MenuItem.Header = ApplicationLocalozation.TopMenu["Central space"][languageIndex];
-            LeftBottomSpace_MenuItem.Header = ApplicationLocalozation.TopMenu["Left bottom space"][languageIndex];
-            FarRightSpace_MenuItem.Header = ApplicationLocalozation.TopMenu["Far right space"][languageIndex];
-            Search_MenuItem.Header = ApplicationLocalozation.TopMenu["Search"][languageIndex];
-            Logic_MenuItem.Header = ApplicationLocalozation.TopMenu["Logic"][languageIndex];
-            Communications_MenuItem.Header = ApplicationLocalozation.TopMenu["Communications"][languageIndex];
-            Tools_MenuItem.Header = ApplicationLocalozation.TopMenu["Tools"][languageIndex];
-            Window_MenuItem.Header = ApplicationLocalozation.TopMenu["Window"][languageIndex];
-            Help_MenuItem.Header = ApplicationLocalozation.TopMenu["Help"][languageIndex];
+            this.Title = ApplicationLocalozation.ApplicationTitle[languageIndex];
+
+            File_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["File"][languageIndex];
+            NewProject_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["New project"][languageIndex];
+            OpenProject_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Open project"][languageIndex];
+            Settings_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Settings"][languageIndex];
+            Language_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Language"][languageIndex];
+            Russian_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Russian"][languageIndex];
+            English_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["English"][languageIndex];
+            Exit_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Exit"][languageIndex];
+            Edit_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Edit"][languageIndex];
+            View_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["View"][languageIndex];
+            LogicalOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Logical organizer"][languageIndex];
+            ControllerOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Controller organizer"][languageIndex];
+            Errors_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Errors"][languageIndex];
+            SearchResults_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Search results"][languageIndex];
+            Watch_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Watch"][languageIndex];
+            CentralSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Central space"][languageIndex];
+            LeftBottomSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Left bottom space"][languageIndex];
+            FarRightSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Far right space"][languageIndex];
+            Search_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Search"][languageIndex];
+            Logic_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Logic"][languageIndex];
+            Communications_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Communications"][languageIndex];
+            Tools_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Tools"][languageIndex];
+            Window_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Window"][languageIndex];
+            Help_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Help"][languageIndex];
+
+            bottomItems[0].Header = ApplicationLocalozation.BottomItemsLanguages[0][languageIndex].Header;
+            bottomItems[0].Content = ApplicationLocalozation.BottomItemsLanguages[0][languageIndex].Content;
+            bottomItems[1].Header = ApplicationLocalozation.BottomItemsLanguages[1][languageIndex].Header;
+            bottomItems[1].Content = ApplicationLocalozation.BottomItemsLanguages[1][languageIndex].Content;
+            bottomItems[2].Header = ApplicationLocalozation.BottomItemsLanguages[2][languageIndex].Header;
+            bottomItems[2].Content = ApplicationLocalozation.BottomItemsLanguages[2][languageIndex].Content;
+
+            BottomSpace.ItemsSource = null;
+            LeftUpperSpace.ItemsSource = null;
+            LeftBottomSpace.ItemsSource = null;
+            FarRightSpace.ItemsSource = null;
+            CentralSpace.ItemsSource = null;
+
+            BottomSpace.ItemsSource = BottomContent;
+            LeftUpperSpace.ItemsSource = LeftUpperContent;
+            LeftBottomSpace.ItemsSource = LeftBottomContent;
+            FarRightSpace.ItemsSource = FarRightContent;
+            CentralSpace.ItemsSource = CentralContent;
+
+            this.IsVisible = true;
         }
 
         private void Russian_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -593,6 +618,12 @@ namespace plc_soldier_avalonia
 
         private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
+            BottomSpace.ItemsSource = null;
+            LeftUpperSpace.ItemsSource = null;
+            LeftBottomSpace.ItemsSource = null;
+            FarRightSpace.ItemsSource = null;
+            CentralSpace.ItemsSource = null;
+
             this.Close();
         }
     }

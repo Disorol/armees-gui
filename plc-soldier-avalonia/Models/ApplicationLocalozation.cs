@@ -13,7 +13,10 @@ namespace plc_soldier_avalonia.Models
             0 - russian
             1 - english
         */
-        public static Dictionary<string, List<string>> TopMenu = new Dictionary<string, List<string>>
+
+        public static List<string> ApplicationTitle = new List<string> { "ПЛК Армеец", "PLC Soldier" };
+
+        public static Dictionary<string, List<string>> TopMenuLanguages = new Dictionary<string, List<string>>
         {
             {"File", new List<string>() { "Файл", "File" } },
             {"New project", new List<string>() { "Новый проект", "New project" } },
@@ -28,7 +31,7 @@ namespace plc_soldier_avalonia.Models
             {"Logical organizer", new List<string>() { "Логический органайзер", "Logical organizer" } },
             {"Controller organizer", new List<string>() { "Контроллер-органайзер", "Controller organizer" } },
             {"Errors", new List<string>() { "Ошибки", "Errors" } },
-            {"Search results", new List<string>() { "Результаты поиска", "Search results" } },
+            {"Search results", new List<string>() { "Поиск результатов", "Search results" } },
             {"Watch", new List<string>() { "Просмотр", "Watch" } },
             {"Central space", new List<string>() { "Центральная область", "Central space" } },
             {"Left bottom space", new List<string>() { "Левая нижняя область", "Left bottom space" } },
@@ -39,6 +42,13 @@ namespace plc_soldier_avalonia.Models
             {"Tools", new List<string>() { "Инструменты", "Tools" } },
             {"Window", new List<string>() { "Окно", "Window" } },
             {"Help", new List<string>() { "Помощь", "Help" } },
+        };
+
+        public static Dictionary<int, List<BottomTabItem>> BottomItemsLanguages = new Dictionary<int, List<BottomTabItem>>
+        {
+            {0, new List<BottomTabItem>() { new BottomTabItem() { Content = "какой-то текст", Header = "Ошибки" }, new BottomTabItem() { Content = "some text", Header = "Errors" }  } },
+            {1, new List<BottomTabItem>() { new BottomTabItem() { Content = "какой-то текст", Header = "Поиск результатов" }, new BottomTabItem() { Content = "some text", Header = "Search results" }  } },
+            {2, new List<BottomTabItem>() { new BottomTabItem() { Content = "какой-то текст", Header = "Просмотр" }, new BottomTabItem() { Content = "some text", Header = "Watch" }  } },
         };
 
         public static int GetLanguageIndex(string language)

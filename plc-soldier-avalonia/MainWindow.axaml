@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="540"
         x:Class="plc_soldier_avalonia.MainWindow"
         RequestedThemeVariant="Light"
-        Title="PLC Soldier">
+        Title="ПЛК Армеец">
   
   <Grid>
     <Grid.RowDefinitions>
@@ -41,7 +41,7 @@
           <MenuItem Name="LogicalOrganizer_MenuItem" Header="Логический органайзер" Click="LogicalOrganizer_Click" />
           <MenuItem Name="ControllerOrganizer_MenuItem" Header="Контроллер-органайзер" Click="ControllerOrganizer_Click" />
           <MenuItem Name="Errors_MenuItem" Header="Ошибки" Click="Errors_Click" />
-          <MenuItem Name="SearchResults_MenuItem" Header="Результаты поиска" Click="SearchResults_Click" />
+          <MenuItem Name="SearchResults_MenuItem" Header="Поиск результатов" Click="SearchResults_Click" />
           <MenuItem Name="Watch_MenuItem" Header="Просмотр" Click="Watch_Click" />
           <MenuItem Name="CentralSpace_MenuItem" Header="Центральная область" Click="Central_Click" />
           <MenuItem Name="LeftBottomSpace_MenuItem" Header="Левая нижняя область" Click="LeftBottom_Click" />
