@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace plc_soldier_avalonia.Models
 {
-    public class RightRightTabItem : ITabItem
+    public class FarRightTabItem : ITabItem
     {
         public string Header { get; set; }
         public string Content { get; set; }

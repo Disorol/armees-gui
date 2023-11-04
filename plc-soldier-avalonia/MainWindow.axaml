@@ -23,8 +23,10 @@
     <!-- Menu -->
     <Grid Grid.Row="0">
       <Menu VerticalAlignment="Top" Grid.Row="0">
-        <MenuItem Header="File">
-          <MenuItem Header="New Project" />
+        <MenuItem Name="File"
+                  Header="File">
+          <MenuItem Name="NewProject_MenuItem"
+                    Header="New Project" />
           <MenuItem Header="Open Project" />
           <Separator />
           <MenuItem Header="Exit" Click="Exit_Click" />
@@ -38,7 +40,7 @@
           <MenuItem Header="Watch" Click="Watch_Click" />
           <MenuItem Header="[Central-space]" Click="Central_Click" />
           <MenuItem Header="[Left-bottom-space]" Click="LeftBottom_Click" />
-          <MenuItem Header="[Right-Right-space]" Click="RightRight_Click" />
+          <MenuItem Header="[Far-Right-space]" Click="FarRight_Click" />
         </MenuItem>
         <MenuItem Header="Search"></MenuItem>
         <MenuItem Header="Logic"></MenuItem>
@@ -258,14 +260,14 @@
           <RowDefinition Height="150" />
         </Grid.RowDefinitions>
 
-        <!-- Central-and-right-right-space-template -->
+        <!-- Central-and-far-right-space-template -->
         <Grid Grid.Row="0" Name="CRR_Grid">
           <Grid.ColumnDefinitions>
             <!-- Central-space-template -->
             <ColumnDefinition Width="*"/>
             <!-- Splitter-template -->
             <ColumnDefinition Width="1" MaxWidth="1" />
-            <!-- Right-right-space-template -->
+            <!-- Far-right-space-template -->
             <ColumnDefinition Width="150"/>
           </Grid.ColumnDefinitions>
 
@@ -342,15 +344,15 @@
                         ResizeBehavior="PreviousAndNext"
                         HorizontalAlignment="Stretch"/>
 
-          <!-- Right-right-space -->
+          <!-- Far-right-space -->
           <Grid Grid.Column="2">
             <DockPanel>
-              <TabControl Name="RightRightSpace">
+              <TabControl Name="FarRightSpace">
                 <TabControl.Styles>
                   <Style Selector="TabItem">
                     <Setter Property="HeaderTemplate">
                       <Setter.Value>
-                        <DataTemplate x:DataType="xxx:RightRightTabItem">
+                        <DataTemplate x:DataType="xxx:FarRightTabItem">
                           <DockPanel>
                             <Button DockPanel.Dock="Right" Click="Delete_Click">
                               <Button.Styles>
@@ -392,7 +394,7 @@
                     </Setter>
                     <Setter Property="ContentTemplate">
                       <Setter.Value>
-                        <DataTemplate x:DataType="xxx:RightRightTabItem">
+                        <DataTemplate x:DataType="xxx:FarRightTabItem">
                           <TextBlock Text="{Binding Content}"/>
                         </DataTemplate>
                       </Setter.Value>

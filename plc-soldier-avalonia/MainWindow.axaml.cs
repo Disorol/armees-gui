@@ -28,10 +28,10 @@ namespace plc_soldier_avalonia
             new LeftBottomTabItem(){Content = "какой-то текст", Header = "Left-bottom-space" },
         };
 
-        // List of content for right right space TabItems
-        List<RightRightTabItem> rightRightItems = new List<RightRightTabItem>()
+        // List of content for far right space TabItems
+        List<FarRightTabItem> farRightItems = new List<FarRightTabItem>()
         {
-            new RightRightTabItem(){Content = "какой-то текст", Header = "Right-right-space" },
+            new FarRightTabItem(){Content = "какой-то текст", Header = "Far-right-space" },
         };
 
         // List of content for central space TabItems
@@ -49,8 +49,8 @@ namespace plc_soldier_avalonia
         // A list containing left bottom space Tabitems
         public ObservableCollection<LeftBottomTabItem> LeftBottomContent { get; set; }
 
-        // A list containing right right space Tabitems
-        public ObservableCollection<RightRightTabItem> RightRightContent { get; set; }
+        // A list containing far right space Tabitems
+        public ObservableCollection<FarRightTabItem> FarRightContent { get; set; }
 
         // A list containing central space Tabitems
         public ObservableCollection<CentralTabItem> CentralContent { get; set; }
@@ -60,27 +60,29 @@ namespace plc_soldier_avalonia
             BottomContent = new ObservableCollection<BottomTabItem>();
             LeftUpperContent = new ObservableCollection<LeftUpperTabItem>();
             LeftBottomContent = new ObservableCollection<LeftBottomTabItem>();
-            RightRightContent = new ObservableCollection<RightRightTabItem>();
+            FarRightContent = new ObservableCollection<FarRightTabItem>();
             CentralContent = new ObservableCollection<CentralTabItem>();
 
             AddingTabItemsAtStartup(new List<LeftUpperTabItem>() { leftUpperItems[0] }, 
                                     new List<BottomTabItem>() { bottomItems[0] },
                                     new List<LeftBottomTabItem>() { leftBottomItems[0] },
-                                    new List<RightRightTabItem>() { rightRightItems[0] },
+                                    new List<FarRightTabItem>() { farRightItems[0] },
                                     new List<CentralTabItem>() { centralItems[0] });
 
             InitializeComponent();
+
+            
             
             BottomSpace.ItemsSource = BottomContent;
             LeftUpperSpace.ItemsSource = LeftUpperContent;
             LeftBottomSpace.ItemsSource = LeftBottomContent;
-            RightRightSpace.ItemsSource = RightRightContent;
+            FarRightSpace.ItemsSource = FarRightContent;
             CentralSpace.ItemsSource = CentralContent;
         }
 
         // Adding TabItems to TabControl at the startup
         private void AddingTabItemsAtStartup(List<LeftUpperTabItem> leftUpperItemsStartup, List<BottomTabItem> bottomItemsStartup, 
-                                             List<LeftBottomTabItem> leftBottomTabItemsStartup, List<RightRightTabItem> rightRightTabItemsStartup,
+                                             List<LeftBottomTabItem> leftBottomTabItemsStartup, List<FarRightTabItem> farRightTabItemsStartup,
                                              List<CentralTabItem> centralTabItemsStartup)
         {
             foreach (var item in leftUpperItemsStartup)
@@ -98,9 +100,9 @@ namespace plc_soldier_avalonia
                 LeftBottomContent.Add(item);
             }
 
-            foreach (var item in rightRightTabItemsStartup)
+            foreach (var item in farRightTabItemsStartup)
             {
-                RightRightContent.Add(item);
+                FarRightContent.Add(item);
             }
 
             foreach (var item in centralTabItemsStartup)
@@ -127,7 +129,7 @@ namespace plc_soldier_avalonia
                         if (CRB_Grid.RowDefinitions[2].Height != new GridLength(1, GridUnitType.Star) && CRB_Grid.RowDefinitions[2].Height != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["Bottom_Height"] = CRB_Grid.RowDefinitions[2].Height;
 
-                        if ((CentralContent.Count > 0)||(RightRightContent.Count > 0))  
+                        if ((CentralContent.Count > 0)||(FarRightContent.Count > 0))  
                         {
                             CRB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
                             CRB_Grid.RowDefinitions[2].Height = new GridLength(0, GridUnitType.Pixel);
@@ -222,18 +224,18 @@ namespace plc_soldier_avalonia
                         }
                     }  
                 }
-                else if (b.DataContext is RightRightTabItem rightRightExample) // Removing RightRightTabItem
+                else if (b.DataContext is FarRightTabItem farRightExample) // Removing FarRightTabItem
                 {
-                    RightRightContent.Remove(rightRightExample);
+                    FarRightContent.Remove(farRightExample);
 
-                    if (RightRightContent.Count == 0)
+                    if (FarRightContent.Count == 0)
                     {
                         /* 
                             Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
                             It is necessary to record only the initial pixel values.
                         */
                         if (CRR_Grid.ColumnDefinitions[2].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[2].Width != new GridLength(0, GridUnitType.Pixel))
-                            TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[2].Width;
+                            TabStatus.gridLengths["FarRight_Width"] = CRR_Grid.ColumnDefinitions[2].Width;
 
                         if (BottomContent.Count == 0 && CentralContent.Count == 0)
                         {
@@ -285,7 +287,7 @@ namespace plc_soldier_avalonia
                         if (CRR_Grid.ColumnDefinitions[0].Width != new GridLength(1, GridUnitType.Star) && CRR_Grid.ColumnDefinitions[0].Width != new GridLength(0, GridUnitType.Pixel))
                             TabStatus.gridLengths["RightRight_Width"] = CRR_Grid.ColumnDefinitions[0].Width;
 
-                        if (BottomContent.Count == 0 && RightRightContent.Count == 0)
+                        if (BottomContent.Count == 0 && FarRightContent.Count == 0)
                         {
                             /* 
                                 Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
@@ -299,7 +301,7 @@ namespace plc_soldier_avalonia
 
                             LR_Splitter.IsVisible = false;
                         }
-                        else if (RightRightContent.Count == 0)
+                        else if (FarRightContent.Count == 0)
                         {
                             /* 
                                 Checking for an attempt to write values of 1 Star or 0 Pixel to TabStatus.
@@ -380,14 +382,14 @@ namespace plc_soldier_avalonia
             if (!CentralContent.Contains(centralItems[0])) CentralContent.Add(centralItems[0]);
         }
 
-        // Creating the [Right-right-space] TabItem
-        private void RightRight_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        // Creating the [Far-right-space] TabItem
+        private void FarRight_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            RightRightExpansion();
+            FarRightExpansion();
             CRRExpansion();
             CRBExpansion();
 
-            if (!RightRightContent.Contains(rightRightItems[0])) RightRightContent.Add(rightRightItems[0]);
+            if (!FarRightContent.Contains(farRightItems[0])) FarRightContent.Add(farRightItems[0]);
         }
 
         // Creating the [Left-bottom-space] TabItem
@@ -403,7 +405,7 @@ namespace plc_soldier_avalonia
         {
             if (BottomContent.Count == 0) 
             {
-                if ((CentralContent.Count == 0) && (RightRightContent.Count == 0))
+                if ((CentralContent.Count == 0) && (FarRightContent.Count == 0))
                 {
                     CRB_Grid.RowDefinitions[0].Height = new GridLength(0, GridUnitType.Pixel);
                     CRB_Grid.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
@@ -420,7 +422,7 @@ namespace plc_soldier_avalonia
 
         public void CRBExpansion() 
         {
-            if (CentralContent.Count == 0 && RightRightContent.Count == 0 && BottomContent.Count == 0) 
+            if (CentralContent.Count == 0 && FarRightContent.Count == 0 && BottomContent.Count == 0) 
             { 
                 if (LeftUpperContent.Count == 0 && LeftBottomContent.Count == 0)
                 {
@@ -441,7 +443,7 @@ namespace plc_soldier_avalonia
         {
             if (CentralContent.Count == 0)
             {
-                if (RightRightContent.Count == 0)
+                if (FarRightContent.Count == 0)
                 {
                     CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                     CRR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
@@ -449,7 +451,7 @@ namespace plc_soldier_avalonia
                 else
                 {
                     CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
-                    CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["RightRight_Width"];
+                    CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["FarRight_Width"];
 
                     CRR_Splitter.IsVisible = true;
                 }
@@ -498,7 +500,7 @@ namespace plc_soldier_avalonia
         {
             if (LeftUpperContent.Count == 0 && LeftBottomContent.Count == 0)
             {
-                if (BottomContent.Count == 0 && CentralContent.Count == 0 && RightRightContent.Count == 0) 
+                if (BottomContent.Count == 0 && CentralContent.Count == 0 && FarRightContent.Count == 0) 
                 {
                     LR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                     LR_Grid.ColumnDefinitions[2].Width = new GridLength(0, GridUnitType.Pixel);
@@ -513,9 +515,9 @@ namespace plc_soldier_avalonia
             }
         }
 
-        public void RightRightExpansion()
+        public void FarRightExpansion()
         {
-            if (RightRightContent.Count == 0)
+            if (FarRightContent.Count == 0)
             {
                 if (CentralContent.Count == 0)
                 {
@@ -524,7 +526,7 @@ namespace plc_soldier_avalonia
                 }
                 else
                 {
-                    CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["RightRight_Width"];
+                    CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["FarRight_Width"];
                     CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
 
                     CRR_Splitter.IsVisible = true;
@@ -534,7 +536,7 @@ namespace plc_soldier_avalonia
 
         public void CRRExpansion()
         {
-            if (CentralContent.Count == 0 && RightRightContent.Count == 0)
+            if (CentralContent.Count == 0 && FarRightContent.Count == 0)
             {
                 if (BottomContent.Count == 0)
                 {
