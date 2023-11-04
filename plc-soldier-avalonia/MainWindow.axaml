@@ -23,31 +23,29 @@
     <!-- Menu -->
     <Grid Grid.Row="0">
       <Menu VerticalAlignment="Top" Grid.Row="0">
-        <MenuItem Name="File"
-                  Header="File">
-          <MenuItem Name="NewProject_MenuItem"
-                    Header="New Project" />
-          <MenuItem Header="Open Project" />
+        <MenuItem Name="File_MenuItem" Header="Файл">
+          <MenuItem Name="NewProject_MenuItem" Header="Новый проект" />
+          <MenuItem Name="OpenProject_MenuItem" Header="Открыть проект" />
           <Separator />
-          <MenuItem Header="Exit" Click="Exit_Click" />
+          <MenuItem Name="Exit_MenuItem" Header="Выход" Click="Exit_Click" />
         </MenuItem>
-        <MenuItem Header="Edit"></MenuItem>
-        <MenuItem Header="View">
-          <MenuItem Header="Logical Organizer" Click="LogicalOrganizer_Click" />
-          <MenuItem Header="Controller-organizer" Click="ControllerOrganizer_Click" />
-          <MenuItem Header="Errors" Click="Errors_Click" />
-          <MenuItem Header="Search Results" Click="SearchResults_Click" />
-          <MenuItem Header="Watch" Click="Watch_Click" />
-          <MenuItem Header="[Central-space]" Click="Central_Click" />
-          <MenuItem Header="[Left-bottom-space]" Click="LeftBottom_Click" />
-          <MenuItem Header="[Far-Right-space]" Click="FarRight_Click" />
+        <MenuItem Name="Edit_MenuItem" Header="Редактировать" />
+        <MenuItem Name="View_MenuItem" Header="Вид">
+          <MenuItem Name="LogicalOrganizer_MenuItem" Header="Логический органайзер" Click="LogicalOrganizer_Click" />
+          <MenuItem Name="ControllerOrganizer_MenuItem" Header="Контроллер-органайзер" Click="ControllerOrganizer_Click" />
+          <MenuItem Name="Errors_MenuItem" Header="Ошибки" Click="Errors_Click" />
+          <MenuItem Name="SearchResults_MenuItem" Header="Результаты поиска" Click="SearchResults_Click" />
+          <MenuItem Name="Watch_MenuItem" Header="Просмотр" Click="Watch_Click" />
+          <MenuItem Name="CentralSpace_MenuItem" Header="Центральная область" Click="Central_Click" />
+          <MenuItem Name="LeftBottomSpace_MenuItem" Header="Левая нижняя область" Click="LeftBottom_Click" />
+          <MenuItem Name="FarRightSpace_MenuItem" Header="Крайняя правая область" Click="FarRight_Click" />
         </MenuItem>
-        <MenuItem Header="Search"></MenuItem>
-        <MenuItem Header="Logic"></MenuItem>
-        <MenuItem Header="Communications"></MenuItem>
-        <MenuItem Header="Tools"></MenuItem>
-        <MenuItem Header="Window"></MenuItem>
-        <MenuItem Header="Help"></MenuItem>
+        <MenuItem Name="Search_MenuItem" Header="Поиск"></MenuItem>
+        <MenuItem Name="Logic_MenuItem" Header="Логика"></MenuItem>
+        <MenuItem Name="Communications_MenuItem" Header="Коммуникации"></MenuItem>
+        <MenuItem Name="Tools_MenuItem" Header="Инструменты"></MenuItem>
+        <MenuItem Name="Window_MenuItem" Header="Окно"></MenuItem>
+        <MenuItem Name="Help_MenuItem" Header="Помощь"></MenuItem>
       </Menu>
     </Grid>
 

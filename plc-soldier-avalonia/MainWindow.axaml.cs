@@ -71,7 +71,7 @@ namespace plc_soldier_avalonia
 
             InitializeComponent();
 
-            
+
             
             BottomSpace.ItemsSource = BottomContent;
             LeftUpperSpace.ItemsSource = LeftUpperContent;
@@ -551,6 +551,32 @@ namespace plc_soldier_avalonia
                     CRB_Splitter.IsVisible = true;
                 }
             }
+        }
+
+        public void ApplicationTranslation(string language)
+        {
+            int languageIndex = ApplicationLocalozation.GetLanguageIndex(language);
+
+            File_MenuItem.Header = ApplicationLocalozation.TopMenu["File"][languageIndex];
+            NewProject_MenuItem.Header = ApplicationLocalozation.TopMenu["New project"][languageIndex];
+            OpenProject_MenuItem.Header = ApplicationLocalozation.TopMenu["Open project"][languageIndex];
+            Exit_MenuItem.Header = ApplicationLocalozation.TopMenu["Exit"][languageIndex];
+            Edit_MenuItem.Header = ApplicationLocalozation.TopMenu["Edit"][languageIndex];
+            View_MenuItem.Header = ApplicationLocalozation.TopMenu["View"][languageIndex];
+            LogicalOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenu["Logical organizer"][languageIndex];
+            ControllerOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenu["Controller organizer"][languageIndex];
+            Errors_MenuItem.Header = ApplicationLocalozation.TopMenu["Errors"][languageIndex];
+            SearchResults_MenuItem.Header = ApplicationLocalozation.TopMenu["Search results"][languageIndex];
+            Watch_MenuItem.Header = ApplicationLocalozation.TopMenu["Watch"][languageIndex];
+            CentralSpace_MenuItem.Header = ApplicationLocalozation.TopMenu["Central space"][languageIndex];
+            LeftBottomSpace_MenuItem.Header = ApplicationLocalozation.TopMenu["Left bottom space"][languageIndex];
+            FarRightSpace_MenuItem.Header = ApplicationLocalozation.TopMenu["Far right space"][languageIndex];
+            Search_MenuItem.Header = ApplicationLocalozation.TopMenu["Search"][languageIndex];
+            Logic_MenuItem.Header = ApplicationLocalozation.TopMenu["Logic"][languageIndex];
+            Communications_MenuItem.Header = ApplicationLocalozation.TopMenu["Communications"][languageIndex];
+            Tools_MenuItem.Header = ApplicationLocalozation.TopMenu["Tools"][languageIndex];
+            Window_MenuItem.Header = ApplicationLocalozation.TopMenu["Window"][languageIndex];
+            Help_MenuItem.Header = ApplicationLocalozation.TopMenu["Help"][languageIndex];
         }
 
         private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
