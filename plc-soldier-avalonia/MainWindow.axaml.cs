@@ -71,8 +71,6 @@ namespace plc_soldier_avalonia
 
             InitializeComponent();
 
-
-            
             BottomSpace.ItemsSource = BottomContent;
             LeftUpperSpace.ItemsSource = LeftUpperContent;
             LeftBottomSpace.ItemsSource = LeftBottomContent;
@@ -560,6 +558,10 @@ namespace plc_soldier_avalonia
             File_MenuItem.Header = ApplicationLocalozation.TopMenu["File"][languageIndex];
             NewProject_MenuItem.Header = ApplicationLocalozation.TopMenu["New project"][languageIndex];
             OpenProject_MenuItem.Header = ApplicationLocalozation.TopMenu["Open project"][languageIndex];
+            Settings_MenuItem.Header = ApplicationLocalozation.TopMenu["Settings"][languageIndex];
+            Language_MenuItem.Header = ApplicationLocalozation.TopMenu["Language"][languageIndex];
+            Russian_MenuItem.Header = ApplicationLocalozation.TopMenu["Russian"][languageIndex];
+            English_MenuItem.Header = ApplicationLocalozation.TopMenu["English"][languageIndex];
             Exit_MenuItem.Header = ApplicationLocalozation.TopMenu["Exit"][languageIndex];
             Edit_MenuItem.Header = ApplicationLocalozation.TopMenu["Edit"][languageIndex];
             View_MenuItem.Header = ApplicationLocalozation.TopMenu["View"][languageIndex];
@@ -577,6 +579,16 @@ namespace plc_soldier_avalonia
             Tools_MenuItem.Header = ApplicationLocalozation.TopMenu["Tools"][languageIndex];
             Window_MenuItem.Header = ApplicationLocalozation.TopMenu["Window"][languageIndex];
             Help_MenuItem.Header = ApplicationLocalozation.TopMenu["Help"][languageIndex];
+        }
+
+        private void Russian_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            ApplicationTranslation("russian");
+        }
+
+        private void English_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            ApplicationTranslation("english");
         }
 
         private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)

@@ -27,6 +27,13 @@
           <MenuItem Name="NewProject_MenuItem" Header="Новый проект" />
           <MenuItem Name="OpenProject_MenuItem" Header="Открыть проект" />
           <Separator />
+          <MenuItem Name="Settings_MenuItem" Header="Настройки">
+            <MenuItem Name="Language_MenuItem" Header="Язык">
+              <MenuItem Name="Russian_MenuItem" Header="Русский" Click="Russian_Click" />
+              <MenuItem Name="English_MenuItem" Header="Английский" Click="English_Click" />
+            </MenuItem>
+          </MenuItem>
+          <Separator />
           <MenuItem Name="Exit_MenuItem" Header="Выход" Click="Exit_Click" />
         </MenuItem>
         <MenuItem Name="Edit_MenuItem" Header="Редактировать" />
