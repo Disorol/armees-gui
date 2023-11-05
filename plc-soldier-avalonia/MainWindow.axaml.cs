@@ -553,8 +553,6 @@ namespace plc_soldier_avalonia
 
         public void ApplicationTranslation(string language)
         {
-            this.IsVisible = false;
-
             int languageIndex = ApplicationLocalozation.GetLanguageIndex(language);
 
             this.Title = ApplicationLocalozation.ApplicationTitle[languageIndex];
@@ -591,6 +589,18 @@ namespace plc_soldier_avalonia
             bottomItems[2].Header = ApplicationLocalozation.BottomItemsLanguages[2][languageIndex].Header;
             bottomItems[2].Content = ApplicationLocalozation.BottomItemsLanguages[2][languageIndex].Content;
 
+            leftUpperItems[0].Header = ApplicationLocalozation.LeftUpperItemsLanguages[0][languageIndex].Header;
+            leftUpperItems[1].Header = ApplicationLocalozation.LeftUpperItemsLanguages[1][languageIndex].Header;
+
+            leftBottomItems[0].Header = ApplicationLocalozation.LeftBottomItemsLanguages[0][languageIndex].Header;
+            leftBottomItems[0].Content = ApplicationLocalozation.LeftBottomItemsLanguages[0][languageIndex].Content;
+
+            farRightItems[0].Header = ApplicationLocalozation.FarRightItemsLanguages[0][languageIndex].Header;
+            farRightItems[0].Content = ApplicationLocalozation.FarRightItemsLanguages[0][languageIndex].Content;
+
+            centralItems[0].Header = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Header;
+            centralItems[0].Content = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Content;
+
             BottomSpace.ItemsSource = null;
             LeftUpperSpace.ItemsSource = null;
             LeftBottomSpace.ItemsSource = null;
@@ -602,8 +612,6 @@ namespace plc_soldier_avalonia
             LeftBottomSpace.ItemsSource = LeftBottomContent;
             FarRightSpace.ItemsSource = FarRightContent;
             CentralSpace.ItemsSource = CentralContent;
-
-            this.IsVisible = true;
         }
 
         private void Russian_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)

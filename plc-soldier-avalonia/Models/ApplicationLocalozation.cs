@@ -51,6 +51,27 @@ namespace plc_soldier_avalonia.Models
             {2, new List<BottomTabItem>() { new BottomTabItem() { Content = "какой-то текст", Header = "Просмотр" }, new BottomTabItem() { Content = "some text", Header = "Watch" }  } },
         };
 
+        public static Dictionary<int, List<LeftUpperTabItem>> LeftUpperItemsLanguages = new Dictionary<int, List<LeftUpperTabItem>>
+        {
+            {0, new List<LeftUpperTabItem>() { new LeftUpperTabItem() { Header = "Логический органайзер" }, new LeftUpperTabItem() { Header = "Logical organizer" }  } },
+            {1, new List<LeftUpperTabItem>() { new LeftUpperTabItem() { Header = "Контроллер-органайзер" }, new LeftUpperTabItem() { Header = "Controller organizer" }  } },
+        };
+
+        public static Dictionary<int, List<LeftBottomTabItem>> LeftBottomItemsLanguages = new Dictionary<int, List<LeftBottomTabItem>>
+        {
+            {0, new List<LeftBottomTabItem>() { new LeftBottomTabItem() { Content = "какой-то текст", Header = "Левая нижняя область" }, new LeftBottomTabItem() { Content = "some text", Header = "Left bottom space" }  } },
+        };
+
+        public static Dictionary<int, List<FarRightTabItem>> FarRightItemsLanguages = new Dictionary<int, List<FarRightTabItem>>
+        {
+            {0, new List<FarRightTabItem>() { new FarRightTabItem() { Content = "какой-то текст", Header = "Крайняя правая область" }, new FarRightTabItem() { Content = "some text", Header = "Far right space" }  } },
+        };
+
+        public static Dictionary<int, List<CentralTabItem>> CentralItemsLanguages = new Dictionary<int, List<CentralTabItem>>
+        {
+            {0, new List<CentralTabItem>() { new CentralTabItem() { Content = "какой-то текст", Header = "Центральная область" }, new CentralTabItem() { Content = "some text", Header = "Central space" }  } },
+        };
+
         public static int GetLanguageIndex(string language)
         {
             switch (language)
