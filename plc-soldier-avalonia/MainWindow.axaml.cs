@@ -557,6 +557,7 @@ namespace plc_soldier_avalonia
             }
         }
 
+        // Translation of the application into the language depending on the input parameter
         public void ApplicationTranslation(string language)
         {
             int languageIndex = ApplicationLocalozation.GetLanguageIndex(language);
@@ -607,6 +608,8 @@ namespace plc_soldier_avalonia
             centralItems[0].Header = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Header;
             centralItems[0].Content = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Content;
 
+            // Clearing and repopulating areas. This is necessary to update the data
+
             BottomSpace.ItemsSource = null;
             LeftUpperSpace.ItemsSource = null;
             LeftBottomSpace.ItemsSource = null;
@@ -620,16 +623,19 @@ namespace plc_soldier_avalonia
             CentralSpace.ItemsSource = CentralContent;
         }
 
+        // Translation of the application into Russian
         private void Russian_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             ApplicationTranslation("russian");
         }
 
+        // Translation of the application into English
         private void English_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             ApplicationTranslation("english");
         }
 
+        // Opening the project folder and displaying it in the logical organizer
         private async void OpenProject_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             var dialog = new OpenFolderDialog();
@@ -655,7 +661,6 @@ namespace plc_soldier_avalonia
 
             var yTop_LeftUpperSpace = Main_Grid.RowDefinitions[0].Height.Value + Main_Grid.RowDefinitions[1].Height.Value + Main_Grid.RowDefinitions[2].Height.Value;
             var yBottom_LeftUpperSpace = this.Height - LULB_Grid.RowDefinitions[1].Height.Value - LULB_Grid.RowDefinitions[2].Height.Value;
-
             var xRight_LeftUpperSpace = LR_Grid.ColumnDefinitions[0].Width.Value;
 
             if (xCursor <= xRight_LeftUpperSpace && yCursor >= yTop_LeftUpperSpace && yCursor <= yBottom_LeftUpperSpace)
@@ -663,9 +668,9 @@ namespace plc_soldier_avalonia
                 // functional
             }
 
-            var k = point.Pointer.Captured;
+            // var k = point.Pointer.Captured;
 
-            var i = LeftUpperSpace.DataContext as ObservableCollection<Node>;
+            // var i = LeftUpperSpace.DataContext as ObservableCollection<Node>;
         }
 
         private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
