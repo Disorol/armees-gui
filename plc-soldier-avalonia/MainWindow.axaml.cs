@@ -2,6 +2,9 @@ using Avalonia.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using plc_soldier_avalonia.Models;
+using System.Diagnostics;
+using Avalonia.Platform.Storage;
+using System.Threading.Tasks;
 
 namespace plc_soldier_avalonia
 {
@@ -622,6 +625,22 @@ namespace plc_soldier_avalonia
         private void English_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             ApplicationTranslation("english");
+        }
+
+        private async void OpenProject_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            var dialog = new OpenFolderDialog();
+
+            var result = await dialog.ShowAsync(this);
+
+            if (result != null)
+            {
+                leftUpperItems[0].TreeViewContent = new ObservableCollection<Node> { new Node(result) };
+
+                LeftUpperSpace.ItemsSource = null;
+
+                LeftUpperSpace.ItemsSource = LeftUpperContent;
+            }
         }
 
         private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)

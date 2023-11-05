@@ -24,8 +24,8 @@
     <Grid Grid.Row="0">
       <Menu VerticalAlignment="Top" Grid.Row="0">
         <MenuItem Name="File_MenuItem" Header="Файл">
-          <MenuItem Name="NewProject_MenuItem" Header="Новый проект" />
-          <MenuItem Name="OpenProject_MenuItem" Header="Открыть проект" />
+          <MenuItem Name="NewProject_MenuItem" Header="Новый проект"/>
+          <MenuItem Name="OpenProject_MenuItem" Header="Открыть проект" Click="OpenProject_Click"/>
           <Separator />
           <MenuItem Name="Settings_MenuItem" Header="Настройки">
             <MenuItem Name="Language_MenuItem" Header="Язык">
