@@ -8,7 +8,7 @@
         RequestedThemeVariant="Light"
         Title="ПЛК Армеец">
   
-  <Grid>
+  <Grid Name="Main_Grid">
     <Grid.RowDefinitions>
       <!-- Menu-template -->
       <RowDefinition Height="20" MinHeight="20"/>

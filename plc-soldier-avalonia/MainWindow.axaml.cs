@@ -5,6 +5,7 @@ using plc_soldier_avalonia.Models;
 using System.Diagnostics;
 using Avalonia.Platform.Storage;
 using System.Threading.Tasks;
+using Avalonia.Input;
 
 namespace plc_soldier_avalonia
 {
@@ -79,6 +80,8 @@ namespace plc_soldier_avalonia
             LeftBottomSpace.ItemsSource = LeftBottomContent;
             FarRightSpace.ItemsSource = FarRightContent;
             CentralSpace.ItemsSource = CentralContent;
+
+            this.AddHandler(PointerPressedEvent, MouseDownHandler, handledEventsToo: true);
         }
 
         // Adding TabItems to TabControl at the startup
@@ -641,6 +644,28 @@ namespace plc_soldier_avalonia
 
                 LeftUpperSpace.ItemsSource = LeftUpperContent;
             }
+        }
+
+        private void MouseDownHandler(object sender, PointerPressedEventArgs e)
+        {
+            var point = e.GetCurrentPoint(sender as Control);
+
+            var xCursor = point.Position.X;
+            var yCursor = point.Position.Y;
+
+            var yTop_LeftUpperSpace = Main_Grid.RowDefinitions[0].Height.Value + Main_Grid.RowDefinitions[1].Height.Value + Main_Grid.RowDefinitions[2].Height.Value;
+            var yBottom_LeftUpperSpace = this.Height - LULB_Grid.RowDefinitions[1].Height.Value - LULB_Grid.RowDefinitions[2].Height.Value;
+
+            var xRight_LeftUpperSpace = LR_Grid.ColumnDefinitions[0].Width.Value;
+
+            if (xCursor <= xRight_LeftUpperSpace && yCursor >= yTop_LeftUpperSpace && yCursor <= yBottom_LeftUpperSpace)
+            {
+                // functional
+            }
+
+            var k = point.Pointer.Captured;
+
+            var i = LeftUpperSpace.DataContext as ObservableCollection<Node>;
         }
 
         private void Exit_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
