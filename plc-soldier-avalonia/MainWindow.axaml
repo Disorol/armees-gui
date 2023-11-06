@@ -13,7 +13,7 @@
       <!-- Menu-template -->
       <RowDefinition Height="20" MinHeight="20"/>
       <!-- Tools-template -->
-      <RowDefinition Height="100"/>
+      <RowDefinition Height="50"/>
       <!-- Splitter-template -->
       <RowDefinition Height="1" MaxHeight="1"/>
       <!-- Main-space-template -->
@@ -71,7 +71,7 @@
                   Background="Black"
                   ResizeDirection="Rows"
                   ResizeBehavior="PreviousAndNext"
-                  HorizontalAlignment="Stretch"/>
+                  HorizontalAlignment="Stretch" IsEnabled="False"/>
 
     <!-- Main-space -->
     <Grid Grid.Row="3" Name="LR_Grid">

@@ -81,6 +81,7 @@ namespace plc_soldier_avalonia
             FarRightSpace.ItemsSource = FarRightContent;
             CentralSpace.ItemsSource = CentralContent;
 
+            // Adding Mouse click Event tracking
             this.AddHandler(PointerPressedEvent, MouseDownHandler, handledEventsToo: true);
         }
 
@@ -652,6 +653,7 @@ namespace plc_soldier_avalonia
             }
         }
 
+        // The event of clicking down the mouse button
         private void MouseDownHandler(object sender, PointerPressedEventArgs e)
         {
             var point = e.GetCurrentPoint(sender as Control);
