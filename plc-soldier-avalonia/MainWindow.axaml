@@ -13,7 +13,7 @@
       <!-- Menu-template -->
       <RowDefinition Height="20" MinHeight="20"/>
       <!-- Tools-template -->
-      <RowDefinition Height="50"/>
+      <RowDefinition Height="45"/>
       <!-- Splitter-template -->
       <RowDefinition Height="1" MaxHeight="1"/>
       <!-- Main-space-template -->
@@ -58,7 +58,71 @@
 
     <!-- Tools -->
     <Grid Grid.Row="1">
-
+      <Menu Height="33" VerticalAlignment="Bottom">
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/txt.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/dock.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/unknown-file.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/txt.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/dock.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/unknown-file.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/txt.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/dock.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+        <MenuItem Width="33">
+          <MenuItem.Header>
+            <StackPanel>
+              <Image Width="28" Height="28" Source="/assets/images/icons/unknown-file.png" />
+            </StackPanel>
+          </MenuItem.Header>
+        </MenuItem>
+      </Menu>
     </Grid>
 
     <!-- Splitter -->
