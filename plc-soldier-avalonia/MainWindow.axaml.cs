@@ -6,6 +6,7 @@ using System.Diagnostics;
 using Avalonia.Platform.Storage;
 using System.Threading.Tasks;
 using Avalonia.Input;
+using SkiaSharp;
 
 namespace plc_soldier_avalonia
 {
@@ -59,6 +60,12 @@ namespace plc_soldier_avalonia
         // A list containing central space Tabitems
         public ObservableCollection<CentralTabItem> CentralContent { get; set; }
 
+        // 
+        public ToolToolTip toolToolTip = new ToolToolTip() { TooltipA = "Всплывающая подсказка 1", TooltipB = "Всплывающая подсказка 2", TooltipC = "Всплывающая подсказка 3",
+                                                             TooltipD = "Всплывающая подсказка 4", TooltipE = "Всплывающая подсказка 5", TooltipF = "Всплывающая подсказка 6", 
+                                                             TooltipG = "Всплывающая подсказка 7", TooltipH = "Всплывающая подсказка 8", TooltipI = "Всплывающая подсказка 9"
+        };
+
         public MainWindow()
         {
             BottomContent = new ObservableCollection<BottomTabItem>();
@@ -81,8 +88,12 @@ namespace plc_soldier_avalonia
             FarRightSpace.ItemsSource = FarRightContent;
             CentralSpace.ItemsSource = CentralContent;
 
+            ggg.DataContext = toolToolTip;
+
             // Adding Mouse click Event tracking
             this.AddHandler(PointerPressedEvent, MouseDownHandler, handledEventsToo: true);
+
+            
         }
 
         // Adding TabItems to TabControl at the startup

@@ -58,64 +58,64 @@
 
     <!-- Tools -->
     <Grid Grid.Row="1">
-      <Menu Height="33" VerticalAlignment="Bottom">
-        <MenuItem Width="33">
+      <Menu Height="33" VerticalAlignment="Bottom" Name="ggg" x:DataType="xxx:ToolToolTip">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipA}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/txt.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipB}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/dock.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipC}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/unknown-file.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipD}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/txt.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipE}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/dock.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipF}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/unknown-file.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipG}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/txt.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipH}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/dock.png" />
             </StackPanel>
           </MenuItem.Header>
         </MenuItem>
-        <MenuItem Width="33">
+        <MenuItem Width="33" ToolTip.Tip="{Binding TooltipI}">
           <MenuItem.Header>
             <StackPanel>
               <Image Width="28" Height="28" Source="/assets/images/icons/unknown-file.png" />
