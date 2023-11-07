@@ -60,11 +60,8 @@ namespace plc_soldier_avalonia
         // A list containing central space Tabitems
         public ObservableCollection<CentralTabItem> CentralContent { get; set; }
 
-        // 
-        public ToolToolTip toolToolTip = new ToolToolTip() { TooltipA = "Всплывающая подсказка 1", TooltipB = "Всплывающая подсказка 2", TooltipC = "Всплывающая подсказка 3",
-                                                             TooltipD = "Всплывающая подсказка 4", TooltipE = "Всплывающая подсказка 5", TooltipF = "Всплывающая подсказка 6", 
-                                                             TooltipG = "Всплывающая подсказка 7", TooltipH = "Всплывающая подсказка 8", TooltipI = "Всплывающая подсказка 9"
-        };
+        // Tooltips for the tool menu
+        public ToolToolTip toolToolTips { get; set; }
 
         public MainWindow()
         {
@@ -80,6 +77,19 @@ namespace plc_soldier_avalonia
                                     new List<FarRightTabItem>() { farRightItems[0] },
                                     new List<CentralTabItem>() { centralItems[0] });
 
+            toolToolTips = new ToolToolTip()
+            {
+                TooltipA = "Всплывающая подсказка 1",
+                TooltipB = "Всплывающая подсказка 2",
+                TooltipC = "Всплывающая подсказка 3",
+                TooltipD = "Всплывающая подсказка 4",
+                TooltipE = "Всплывающая подсказка 5",
+                TooltipF = "Всплывающая подсказка 6",
+                TooltipG = "Всплывающая подсказка 7",
+                TooltipH = "Всплывающая подсказка 8",
+                TooltipI = "Всплывающая подсказка 9"
+            };
+
             InitializeComponent();
 
             BottomSpace.ItemsSource = BottomContent;
@@ -88,12 +98,10 @@ namespace plc_soldier_avalonia
             FarRightSpace.ItemsSource = FarRightContent;
             CentralSpace.ItemsSource = CentralContent;
 
-            ggg.DataContext = toolToolTip;
+            ToolsMenu.DataContext = toolToolTips;
 
             // Adding Mouse click Event tracking
             this.AddHandler(PointerPressedEvent, MouseDownHandler, handledEventsToo: true);
-
-            
         }
 
         // Adding TabItems to TabControl at the startup

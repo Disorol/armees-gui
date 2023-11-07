@@ -58,7 +58,7 @@
 
     <!-- Tools -->
     <Grid Grid.Row="1">
-      <Menu Height="33" VerticalAlignment="Bottom" Name="ggg" x:DataType="xxx:ToolToolTip">
+      <Menu Height="33" VerticalAlignment="Bottom" Name="ToolsMenu" x:DataType="xxx:ToolToolTip">
         <MenuItem Width="33" ToolTip.Tip="{Binding TooltipA}">
           <MenuItem.Header>
             <StackPanel>
