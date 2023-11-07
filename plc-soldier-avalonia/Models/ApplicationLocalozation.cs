@@ -72,6 +72,35 @@ namespace plc_soldier_avalonia.Models
             {0, new List<CentralTabItem>() { new CentralTabItem() { Content = "какой-то текст", Header = "Центральная область" }, new CentralTabItem() { Content = "some text", Header = "Central space" }  } },
         };
 
+        public static List<ToolToolTip> ToolToolTipLanguages = new List<ToolToolTip>()
+        {
+            new ToolToolTip()
+            {
+                TooltipA = "Всплывающая подсказка 1",
+                TooltipB = "Всплывающая подсказка 2",
+                TooltipC = "Всплывающая подсказка 3",
+                TooltipD = "Всплывающая подсказка 4",
+                TooltipE = "Всплывающая подсказка 5",
+                TooltipF = "Всплывающая подсказка 6",
+                TooltipG = "Всплывающая подсказка 7",
+                TooltipH = "Всплывающая подсказка 8",
+                TooltipI = "Всплывающая подсказка 9"
+            },
+
+            new ToolToolTip()
+            {
+                TooltipA = "Popup hint 1",
+                TooltipB = "Popup hint 2",
+                TooltipC = "Popup hint 3",
+                TooltipD = "Popup hint 4",
+                TooltipE = "Popup hint 5",
+                TooltipF = "Popup hint 6",
+                TooltipG = "Popup hint 7",
+                TooltipH = "Popup hint 8",
+                TooltipI = "Popup hint 9"
+            },
+        };
+
         public static int GetLanguageIndex(string language)
         {
             switch (language)

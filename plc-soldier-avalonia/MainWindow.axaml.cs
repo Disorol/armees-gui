@@ -628,7 +628,9 @@ namespace plc_soldier_avalonia
             centralItems[0].Header = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Header;
             centralItems[0].Content = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Content;
 
-            // Clearing and repopulating areas. This is necessary to update the data
+            toolToolTips = ApplicationLocalozation.ToolToolTipLanguages[languageIndex];
+
+            // Clearing and repopulating ItemsSource and DataContext. This is necessary to update the data.
 
             BottomSpace.ItemsSource = null;
             LeftUpperSpace.ItemsSource = null;
@@ -641,6 +643,10 @@ namespace plc_soldier_avalonia
             LeftBottomSpace.ItemsSource = LeftBottomContent;
             FarRightSpace.ItemsSource = FarRightContent;
             CentralSpace.ItemsSource = CentralContent;
+
+            ToolsMenu.DataContext = null;
+
+            ToolsMenu.DataContext = toolToolTips;
         }
 
         // Translation of the application into Russian
