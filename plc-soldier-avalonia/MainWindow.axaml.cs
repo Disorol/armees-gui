@@ -24,25 +24,24 @@ namespace plc_soldier_avalonia
         List<LeftUpperTabItem> leftUpperItems = new List<LeftUpperTabItem>()
         {
             new LeftUpperTabItem(){Header = "Логический органайзер", TreeViewContent = new ObservableCollection<Node> { new Node(@"C:\Users\T\source\repos\plc-soldier-wpf") } },
-            new LeftUpperTabItem(){Header = "Контроллер-органайзер", TreeViewContent = null },
         };
 
         // List of content for left bottom space TabItems
         List<LeftBottomTabItem> leftBottomItems = new List<LeftBottomTabItem>()
         {
-            new LeftBottomTabItem(){Content = "какой-то текст", Header = "Левая нижняя область" },
+            new LeftBottomTabItem(){Header = "Аппаратный органайзер", Content = "какой-то текст" },
         };
 
         // List of content for far right space TabItems
         List<FarRightTabItem> farRightItems = new List<FarRightTabItem>()
         {
-            new FarRightTabItem(){Content = "какой-то текст", Header = "Крайняя правая область" },
+            new FarRightTabItem(){Content = "какой-то текст", Header = "Свойства" },
         };
 
         // List of content for central space TabItems
         List<CentralTabItem> centralItems = new List<CentralTabItem>()
         {
-            new CentralTabItem(){Content = "какой-то текст", Header = "Центральная область" },
+            new CentralTabItem(){Content = "какой-то текст", Header = "Рабочая область" },
         };
 
         // A list containing bottom space Tabitems
@@ -361,12 +360,12 @@ namespace plc_soldier_avalonia
         }
 
         // Creating the Control Organizer TabItem
-        private void ControllerOrganizer_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void HardwareOrganizer_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            LeftUpperExpansion();
+            LeftBottomExpansion();
             LULBExpansion();
 
-            if (!LeftUpperContent.Contains(leftUpperItems[1])) LeftUpperContent.Add(leftUpperItems[1]);
+            if (!LeftBottomContent.Contains(leftBottomItems[0])) LeftBottomContent.Add(leftBottomItems[0]);
         }
 
         // Creating the Errors TabItem
@@ -397,7 +396,7 @@ namespace plc_soldier_avalonia
         }
 
         // Creating the [Central-space] TabItem
-        private void Central_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void Work_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             CRBExpansion();
             CRRExpansion();
@@ -407,22 +406,13 @@ namespace plc_soldier_avalonia
         }
 
         // Creating the [Far-right-space] TabItem
-        private void FarRight_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private void Property_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             FarRightExpansion();
             CRRExpansion();
             CRBExpansion();
 
             if (!FarRightContent.Contains(farRightItems[0])) FarRightContent.Add(farRightItems[0]);
-        }
-
-        // Creating the [Left-bottom-space] TabItem
-        private void LeftBottom_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            LULBExpansion();
-            LeftBottomExpansion();
-
-            if (!LeftBottomContent.Contains(leftBottomItems[0])) LeftBottomContent.Add(leftBottomItems[0]);
         }
 
         public void BottomExpansion()
@@ -595,13 +585,12 @@ namespace plc_soldier_avalonia
             Edit_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Edit"][languageIndex];
             View_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["View"][languageIndex];
             LogicalOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Logical organizer"][languageIndex];
-            ControllerOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Controller organizer"][languageIndex];
+            HardwareOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Hardware organizer"][languageIndex];
             Errors_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Errors"][languageIndex];
             SearchResults_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Search results"][languageIndex];
             Watch_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Watch"][languageIndex];
-            CentralSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Central space"][languageIndex];
-            LeftBottomSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Left bottom space"][languageIndex];
-            FarRightSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Far right space"][languageIndex];
+            WorkSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Workspace"][languageIndex];
+            Property_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Property"][languageIndex];
             Search_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Search"][languageIndex];
             Logic_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Logic"][languageIndex];
             Communications_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Communications"][languageIndex];
@@ -617,7 +606,6 @@ namespace plc_soldier_avalonia
             bottomItems[2].Content = ApplicationLocalozation.BottomItemsLanguages[2][languageIndex].Content;
 
             leftUpperItems[0].Header = ApplicationLocalozation.LeftUpperItemsLanguages[0][languageIndex].Header;
-            leftUpperItems[1].Header = ApplicationLocalozation.LeftUpperItemsLanguages[1][languageIndex].Header;
 
             leftBottomItems[0].Header = ApplicationLocalozation.LeftBottomItemsLanguages[0][languageIndex].Header;
             leftBottomItems[0].Content = ApplicationLocalozation.LeftBottomItemsLanguages[0][languageIndex].Content;

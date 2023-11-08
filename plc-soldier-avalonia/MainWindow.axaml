@@ -39,13 +39,12 @@
         <MenuItem Name="Edit_MenuItem" Header="Редактировать" />
         <MenuItem Name="View_MenuItem" Header="Вид">
           <MenuItem Name="LogicalOrganizer_MenuItem" Header="Логический органайзер" Click="LogicalOrganizer_Click" />
-          <MenuItem Name="ControllerOrganizer_MenuItem" Header="Контроллер-органайзер" Click="ControllerOrganizer_Click" />
+          <MenuItem Name="HardwareOrganizer_MenuItem" Header="Аппаратный органайзер" Click="HardwareOrganizer_Click" />
           <MenuItem Name="Errors_MenuItem" Header="Ошибки" Click="Errors_Click" />
           <MenuItem Name="SearchResults_MenuItem" Header="Поиск результатов" Click="SearchResults_Click" />
           <MenuItem Name="Watch_MenuItem" Header="Просмотр" Click="Watch_Click" />
-          <MenuItem Name="CentralSpace_MenuItem" Header="Центральная область" Click="Central_Click" />
-          <MenuItem Name="LeftBottomSpace_MenuItem" Header="Левая нижняя область" Click="LeftBottom_Click" />
-          <MenuItem Name="FarRightSpace_MenuItem" Header="Крайняя правая область" Click="FarRight_Click" />
+          <MenuItem Name="WorkSpace_MenuItem" Header="Рабочая область" Click="Work_Click" />
+          <MenuItem Name="Property_MenuItem" Header="Свойства" Click="Property_Click" />
         </MenuItem>
         <MenuItem Name="Search_MenuItem" Header="Поиск"></MenuItem>
         <MenuItem Name="Logic_MenuItem" Header="Логика"></MenuItem>
