@@ -141,7 +141,9 @@ namespace plc_soldier_avalonia
             {
                 if (b.DataContext is BottomTabItem bottomExample) // Removing BottomTabItem
                 {
-                    BottomContent.Remove(bottomExample);
+                    BottomContent.Remove(bottomItems[0]);
+                    BottomContent.Remove(bottomItems[1]);
+                    BottomContent.Remove(bottomItems[2]);
 
                     if (BottomContent.Count == 0 ) 
                     {
@@ -374,13 +376,9 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[0]))
-            {
-                BottomContent.Add(bottomItems[0]);
-
-                if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
-                if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
-            }       
+            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
+            if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
+            if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
         }
 
         // Creating the Search results TabItem
@@ -389,13 +387,9 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[1]))
-            {
-                BottomContent.Add(bottomItems[1]);
-
-                if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
-                if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
-            }    
+            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
+            if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
+            if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
         }
 
         // Creating the Watch TabItem
@@ -404,14 +398,9 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[2]))
-            {
-                BottomContent.Add(bottomItems[2]);
-
-                if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
-                if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
-            }
-                
+            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
+            if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
+            if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);               
         }
 
         // Creating the Workpace TabItem
