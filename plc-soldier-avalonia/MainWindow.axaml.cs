@@ -71,7 +71,7 @@ namespace plc_soldier_avalonia
             CentralContent = new ObservableCollection<CentralTabItem>();
 
             AddingTabItemsAtStartup(new List<LeftUpperTabItem>() { leftUpperItems[0] }, 
-                                    new List<BottomTabItem>() { bottomItems[0] },
+                                    new List<BottomTabItem>() { bottomItems[0], bottomItems[1], bottomItems[2] },
                                     new List<LeftBottomTabItem>() { leftBottomItems[0] },
                                     new List<FarRightTabItem>() { farRightItems[0] },
                                     new List<CentralTabItem>() { centralItems[0] });
@@ -374,7 +374,13 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
+            if (!BottomContent.Contains(bottomItems[0]))
+            {
+                BottomContent.Add(bottomItems[0]);
+
+                if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
+                if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
+            }       
         }
 
         // Creating the Search results TabItem
@@ -383,7 +389,13 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
+            if (!BottomContent.Contains(bottomItems[1]))
+            {
+                BottomContent.Add(bottomItems[1]);
+
+                if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
+                if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
+            }    
         }
 
         // Creating the Watch TabItem
@@ -392,7 +404,14 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
+            if (!BottomContent.Contains(bottomItems[2]))
+            {
+                BottomContent.Add(bottomItems[2]);
+
+                if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
+                if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
+            }
+                
         }
 
         // Creating the Workpace TabItem
