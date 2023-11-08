@@ -350,7 +350,7 @@ namespace plc_soldier_avalonia
             }
         }
 
-        // Creating the Logical Organizer TabItem
+        // Creating the Logical organizer TabItem
         private void LogicalOrganizer_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             LeftUpperExpansion();
@@ -359,7 +359,7 @@ namespace plc_soldier_avalonia
             if (!LeftUpperContent.Contains(leftUpperItems[0])) LeftUpperContent.Add(leftUpperItems[0]);
         }
 
-        // Creating the Control Organizer TabItem
+        // Creating the Control organizer TabItem
         private void HardwareOrganizer_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             LeftBottomExpansion();
@@ -377,7 +377,7 @@ namespace plc_soldier_avalonia
             if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
         }
 
-        // Creating the SearchResults TabItem
+        // Creating the Search results TabItem
         private void SearchResults_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             BottomExpansion();
@@ -395,7 +395,7 @@ namespace plc_soldier_avalonia
             if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
         }
 
-        // Creating the [Central-space] TabItem
+        // Creating the Workpace TabItem
         private void Work_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             CRBExpansion();
@@ -405,7 +405,7 @@ namespace plc_soldier_avalonia
             if (!CentralContent.Contains(centralItems[0])) CentralContent.Add(centralItems[0]);
         }
 
-        // Creating the [Far-right-space] TabItem
+        // Creating the Property TabItem
         private void Property_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
             FarRightExpansion();
