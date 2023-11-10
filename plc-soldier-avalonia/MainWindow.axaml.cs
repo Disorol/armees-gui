@@ -64,6 +64,8 @@ namespace plc_soldier_avalonia
 
         public MainWindow()
         {
+            InitializeComponent();
+
             BottomContent = new ObservableCollection<BottomTabItem>();
             LeftUpperContent = new ObservableCollection<LeftUpperTabItem>();
             LeftBottomContent = new ObservableCollection<LeftBottomTabItem>();
@@ -87,9 +89,7 @@ namespace plc_soldier_avalonia
                 TooltipG = "Всплывающая подсказка 7",
                 TooltipH = "Всплывающая подсказка 8",
                 TooltipI = "Всплывающая подсказка 9"
-            };
-
-            InitializeComponent();
+            };  
 
             BottomSpace.ItemsSource = BottomContent;
             LeftUpperSpace.ItemsSource = LeftUpperContent;
@@ -104,16 +104,37 @@ namespace plc_soldier_avalonia
         }
 
         // Adding TabItems to TabControl at the startup
-        private void AddingTabItemsAtStartup(List<LeftUpperTabItem> leftUpperItemsStartup, List<BottomTabItem> bottomItemsStartup, 
+        private void AddingTabItemsAtStartup(List<LeftUpperTabItem> leftUpperTabItemsStartup, List<BottomTabItem> bottomTabItemsStartup, 
                                              List<LeftBottomTabItem> leftBottomTabItemsStartup, List<FarRightTabItem> farRightTabItemsStartup,
                                              List<CentralTabItem> centralTabItemsStartup)
         {
-            foreach (var item in leftUpperItemsStartup)
+            if (leftUpperTabItemsStartup.Contains(leftUpperItems[0]))
+                LogicalOrganizer_MenuItem.IsEnabled = false;
+
+            if (leftBottomTabItemsStartup.Contains(leftBottomItems[0]))
+                HardwareOrganizer_MenuItem.IsEnabled = false;
+
+            if (bottomTabItemsStartup.Contains(bottomItems[0]))
+                Errors_MenuItem.IsEnabled = false;
+
+            if (bottomTabItemsStartup.Contains(bottomItems[1]))
+                SearchResults_MenuItem.IsEnabled = false;
+
+            if (bottomTabItemsStartup.Contains(bottomItems[2]))
+                Watch_MenuItem.IsEnabled = false;
+
+            if (centralTabItemsStartup.Contains(centralItems[0]))
+                WorkSpace_MenuItem.IsEnabled = false;
+
+            if (farRightTabItemsStartup.Contains(farRightItems[0]))
+                Property_MenuItem.IsEnabled = false;
+
+            foreach (var item in leftUpperTabItemsStartup)
             { 
                 LeftUpperContent.Add(item);
             }
 
-            foreach (var item in bottomItemsStartup)
+            foreach (var item in bottomTabItemsStartup)
             {
                 BottomContent.Add(item);
             }
@@ -144,6 +165,10 @@ namespace plc_soldier_avalonia
                     BottomContent.Remove(bottomItems[0]);
                     BottomContent.Remove(bottomItems[1]);
                     BottomContent.Remove(bottomItems[2]);
+
+                    Errors_MenuItem.IsEnabled = true;
+                    SearchResults_MenuItem.IsEnabled = true;
+                    Watch_MenuItem.IsEnabled = true;
 
                     if (BottomContent.Count == 0 ) 
                     {
@@ -181,6 +206,8 @@ namespace plc_soldier_avalonia
                 {
                     LeftUpperContent.Remove(leftExample);
 
+                    LogicalOrganizer_MenuItem.IsEnabled = true;
+
                     if (LeftUpperContent.Count == 0)
                     {
                         /* 
@@ -217,6 +244,8 @@ namespace plc_soldier_avalonia
                 {
                     LeftBottomContent.Remove(leftBottomExample);
 
+                    HardwareOrganizer_MenuItem.IsEnabled = true;
+
                     if (LeftBottomContent.Count == 0)
                     {
                         /* 
@@ -252,6 +281,8 @@ namespace plc_soldier_avalonia
                 else if (b.DataContext is FarRightTabItem farRightExample) // Removing FarRightTabItem
                 {
                     FarRightContent.Remove(farRightExample);
+
+                    Property_MenuItem.IsEnabled = true;
 
                     if (FarRightContent.Count == 0)
                     {
@@ -302,6 +333,8 @@ namespace plc_soldier_avalonia
                 else if (b.DataContext is CentralTabItem centralExample) // Removing CentralTabItem
                 {
                     CentralContent.Remove(centralExample);
+
+                    WorkSpace_MenuItem.IsEnabled = true;
 
                     if (CentralContent.Count == 0)
                     {
@@ -358,7 +391,11 @@ namespace plc_soldier_avalonia
             LeftUpperExpansion();
             LULBExpansion();
 
-            if (!LeftUpperContent.Contains(leftUpperItems[0])) LeftUpperContent.Add(leftUpperItems[0]);
+            if (!LeftUpperContent.Contains(leftUpperItems[0]))
+            {
+                LeftUpperContent.Add(leftUpperItems[0]);
+                LogicalOrganizer_MenuItem.IsEnabled = false;
+            }        
         }
 
         // Creating the Control organizer TabItem
@@ -367,7 +404,11 @@ namespace plc_soldier_avalonia
             LeftBottomExpansion();
             LULBExpansion();
 
-            if (!LeftBottomContent.Contains(leftBottomItems[0])) LeftBottomContent.Add(leftBottomItems[0]);
+            if (!LeftBottomContent.Contains(leftBottomItems[0]))
+            {
+                LeftBottomContent.Add(leftBottomItems[0]);
+                HardwareOrganizer_MenuItem.IsEnabled = false;
+            }
         }
 
         // Creating the Errors TabItem
@@ -376,9 +417,21 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
-            if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
-            if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
+            if (!BottomContent.Contains(bottomItems[0]))
+            {
+                BottomContent.Add(bottomItems[0]);
+                Errors_MenuItem.IsEnabled = false;
+            }
+            if (!BottomContent.Contains(bottomItems[1]))
+            {
+                BottomContent.Add(bottomItems[1]);
+                SearchResults_MenuItem.IsEnabled = false;
+            }
+            if (!BottomContent.Contains(bottomItems[2]))
+            {
+                BottomContent.Add(bottomItems[2]);
+                Watch_MenuItem.IsEnabled = false;
+            }
         }
 
         // Creating the Search results TabItem
@@ -387,9 +440,21 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
-            if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
-            if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);
+            if (!BottomContent.Contains(bottomItems[0]))
+            {
+                BottomContent.Add(bottomItems[0]);
+                Errors_MenuItem.IsEnabled = false;
+            }
+            if (!BottomContent.Contains(bottomItems[1]))
+            {
+                BottomContent.Add(bottomItems[1]);
+                SearchResults_MenuItem.IsEnabled = false;
+            }
+            if (!BottomContent.Contains(bottomItems[2]))
+            {
+                BottomContent.Add(bottomItems[2]);
+                Watch_MenuItem.IsEnabled = false;
+            }
         }
 
         // Creating the Watch TabItem
@@ -398,9 +463,21 @@ namespace plc_soldier_avalonia
             BottomExpansion();
             CRBExpansion();
 
-            if (!BottomContent.Contains(bottomItems[0])) BottomContent.Add(bottomItems[0]);
-            if (!BottomContent.Contains(bottomItems[1])) BottomContent.Add(bottomItems[1]);
-            if (!BottomContent.Contains(bottomItems[2])) BottomContent.Add(bottomItems[2]);               
+            if (!BottomContent.Contains(bottomItems[0]))
+            {
+                BottomContent.Add(bottomItems[0]);
+                Errors_MenuItem.IsEnabled = false;
+            }
+            if (!BottomContent.Contains(bottomItems[1]))
+            {
+                BottomContent.Add(bottomItems[1]);
+                SearchResults_MenuItem.IsEnabled = false;
+            }
+            if (!BottomContent.Contains(bottomItems[2]))
+            {
+                BottomContent.Add(bottomItems[2]);
+                Watch_MenuItem.IsEnabled = false;
+            }
         }
 
         // Creating the Workpace TabItem
@@ -410,7 +487,11 @@ namespace plc_soldier_avalonia
             CRRExpansion();
             CentralExpansion();
 
-            if (!CentralContent.Contains(centralItems[0])) CentralContent.Add(centralItems[0]);
+            if (!CentralContent.Contains(centralItems[0]))
+            {
+                CentralContent.Add(centralItems[0]);
+                WorkSpace_MenuItem.IsEnabled = false;
+            }
         }
 
         // Creating the Property TabItem
@@ -420,7 +501,11 @@ namespace plc_soldier_avalonia
             CRRExpansion();
             CRBExpansion();
 
-            if (!FarRightContent.Contains(farRightItems[0])) FarRightContent.Add(farRightItems[0]);
+            if (!FarRightContent.Contains(farRightItems[0]))
+            {
+                FarRightContent.Add(farRightItems[0]);
+                Property_MenuItem.IsEnabled = false;
+            } 
         }
 
         public void BottomExpansion()
@@ -437,7 +522,7 @@ namespace plc_soldier_avalonia
                     CRB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["Bottom_Height"];
                     CRB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
 
-                    CRB_Splitter.IsVisible = true;
+                    CRB_Splitter.IsVisible = false;
                 }
             }
         }
@@ -456,7 +541,7 @@ namespace plc_soldier_avalonia
                     LR_Grid.ColumnDefinitions[0].Width = TabStatus.gridLengths["LULB_Width"];
                     LR_Grid.ColumnDefinitions[2].Width = new GridLength(1, GridUnitType.Star);
 
-                    LR_Splitter.IsVisible = true;
+                    LR_Splitter.IsVisible = false;
                 }
             }
         }
@@ -475,7 +560,7 @@ namespace plc_soldier_avalonia
                     CRR_Grid.ColumnDefinitions[0].Width = new GridLength(1, GridUnitType.Star);
                     CRR_Grid.ColumnDefinitions[2].Width = TabStatus.gridLengths["FarRight_Width"];
 
-                    CRR_Splitter.IsVisible = true;
+                    CRR_Splitter.IsVisible = false;
                 }
             }
         }
@@ -494,7 +579,7 @@ namespace plc_soldier_avalonia
                     LULB_Grid.RowDefinitions[2].Height = TabStatus.gridLengths["LeftBottom_Height"];
                     LULB_Grid.RowDefinitions[0].Height = new GridLength(1, GridUnitType.Star);
 
-                    LULB_Splitter.IsVisible = true;
+                    LULB_Splitter.IsVisible = false;
                 }
             }
         }

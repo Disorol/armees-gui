@@ -16,6 +16,14 @@
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.2" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.2" />
+    <PackageReference Include="Svg.Skia" Version="1.0.0.3" />
     <AvaloniaResource Include="assets\images\icons\**" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Remove="assets\images\icons\.png" />
+    <None Remove="assets\images\icons\1.png" />
+    <None Remove="assets\images\icons\check-mark.svg" />
   </ItemGroup>
 </Project>
