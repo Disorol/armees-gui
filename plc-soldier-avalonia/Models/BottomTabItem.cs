@@ -10,5 +10,6 @@ namespace plc_soldier_avalonia.Models
     {
         public string Header { get; set; }
         public string? Content { get; set; }
+        public bool isVisible { get; set; } // Required for groups of tabs that are closed with a single cross
     }
 }

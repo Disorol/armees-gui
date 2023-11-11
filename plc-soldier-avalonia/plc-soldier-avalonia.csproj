@@ -18,11 +18,4 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.2" />
     <AvaloniaResource Include="assets\images\icons\**" />
   </ItemGroup>
-
-
-  <ItemGroup>
-    <None Remove="assets\images\icons\.png" />
-    <None Remove="assets\images\icons\1.png" />
-    <None Remove="assets\images\icons\check-mark.svg" />
-  </ItemGroup>
 </Project>

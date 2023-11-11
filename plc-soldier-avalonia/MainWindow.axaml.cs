@@ -15,9 +15,9 @@ namespace plc_soldier_avalonia
         // List of content for bottom space TabItems
         Dictionary<string, BottomTabItem> bottomItems = new Dictionary<string, BottomTabItem>()
         {
-            {"Errors", new BottomTabItem(){Content = "какой-то текст", Header = "Ошибки" }},
-            {"SearchResults", new BottomTabItem(){Content = "какой-то текст", Header = "Поиск результатов" }},
-            {"Watch", new BottomTabItem(){Content = "какой-то текст", Header = "Просмотр" }},
+            {"Errors", new BottomTabItem(){Content = "какой-то текст", Header = "Ошибки", isVisible = false }},
+            {"SearchResults", new BottomTabItem(){Content = "какой-то текст", Header = "Поиск результатов", isVisible = false }},
+            {"Watch", new BottomTabItem(){Content = "какой-то текст", Header = "Просмотр", isVisible = true }},
         };
 
         // List of content for left upper space TabItems

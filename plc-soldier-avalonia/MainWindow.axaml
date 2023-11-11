@@ -498,7 +498,7 @@
                     <Setter.Value>
                       <DataTemplate x:DataType="xxx:BottomTabItem">
                         <DockPanel>
-                          <Button DockPanel.Dock="Right" Click="Delete_Click">
+                          <Button DockPanel.Dock="Right" Click="Delete_Click"  IsVisible="{Binding isVisible}">
                             <Button.Styles>
                               <Style>
                                 <Style.Resources>
