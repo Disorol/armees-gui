@@ -671,49 +671,49 @@ namespace plc_soldier_avalonia
 
             this.Title = ApplicationLocalozation.ApplicationTitle[languageIndex];
 
-            File_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["File"][languageIndex];
-            NewProject_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["New project"][languageIndex];
-            OpenProject_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Open project"][languageIndex];
-            Settings_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Settings"][languageIndex];
-            Language_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Language"][languageIndex];
-            Russian_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Russian"][languageIndex];
-            English_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["English"][languageIndex];
-            Exit_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Exit"][languageIndex];
-            Edit_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Edit"][languageIndex];
-            View_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["View"][languageIndex];
-            LogicalOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Logical organizer"][languageIndex];
-            HardwareOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Hardware organizer"][languageIndex];
-            Errors_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Errors"][languageIndex];
-            SearchResults_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Search results"][languageIndex];
-            Watch_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Watch"][languageIndex];
-            WorkSpace_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Workspace"][languageIndex];
-            Property_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Property"][languageIndex];
-            Search_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Search"][languageIndex];
-            Logic_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Logic"][languageIndex];
-            Communications_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Communications"][languageIndex];
-            Tools_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Tools"][languageIndex];
-            Window_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Window"][languageIndex];
-            Help_MenuItem.Header = ApplicationLocalozation.TopMenuLanguages["Help"][languageIndex];
+            File_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["File"][languageIndex];
+            NewProject_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["New project"][languageIndex];
+            OpenProject_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Open project"][languageIndex];
+            Settings_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Settings"][languageIndex];
+            Language_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Language"][languageIndex];
+            Russian_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Russian"][languageIndex];
+            English_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["English"][languageIndex];
+            Exit_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Exit"][languageIndex];
+            Edit_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Edit"][languageIndex];
+            View_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["View"][languageIndex];
+            LogicalOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Logical organizer"][languageIndex];
+            HardwareOrganizer_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Hardware organizer"][languageIndex];
+            Errors_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Errors"][languageIndex];
+            SearchResults_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Search results"][languageIndex];
+            Watch_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Watch"][languageIndex];
+            WorkSpace_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Workspace"][languageIndex];
+            Property_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Property"][languageIndex];
+            Search_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Search"][languageIndex];
+            Logic_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Logic"][languageIndex];
+            Communications_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Communications"][languageIndex];
+            Tools_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Tools"][languageIndex];
+            Window_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Window"][languageIndex];
+            Help_MenuItem.Header = ApplicationLocalozation.TopMenuTranslations["Help"][languageIndex];
 
-            bottomItems["Errors"].Header = ApplicationLocalozation.BottomItemsLanguages[0][languageIndex].Header;
-            bottomItems["Errors"].Content = ApplicationLocalozation.BottomItemsLanguages[0][languageIndex].Content;
-            bottomItems["SearchResults"].Header = ApplicationLocalozation.BottomItemsLanguages[1][languageIndex].Header;
-            bottomItems["SearchResults"].Content = ApplicationLocalozation.BottomItemsLanguages[1][languageIndex].Content;
-            bottomItems["Watch"].Header = ApplicationLocalozation.BottomItemsLanguages[2][languageIndex].Header;
-            bottomItems["Watch"].Content = ApplicationLocalozation.BottomItemsLanguages[2][languageIndex].Content;
+            bottomItems["Errors"].Header = ApplicationLocalozation.BottomItemsTranslations[0][languageIndex].Header;
+            bottomItems["Errors"].Content = ApplicationLocalozation.BottomItemsTranslations[0][languageIndex].Content;
+            bottomItems["SearchResults"].Header = ApplicationLocalozation.BottomItemsTranslations[1][languageIndex].Header;
+            bottomItems["SearchResults"].Content = ApplicationLocalozation.BottomItemsTranslations[1][languageIndex].Content;
+            bottomItems["Watch"].Header = ApplicationLocalozation.BottomItemsTranslations[2][languageIndex].Header;
+            bottomItems["Watch"].Content = ApplicationLocalozation.BottomItemsTranslations[2][languageIndex].Content;
 
-            leftUpperItems["LogicalOrganizer"].Header = ApplicationLocalozation.LeftUpperItemsLanguages[0][languageIndex].Header;
+            leftUpperItems["LogicalOrganizer"].Header = ApplicationLocalozation.LeftUpperItemsTranslations[0][languageIndex].Header;
 
-            leftBottomItems["HardwareOrganizer"].Header = ApplicationLocalozation.LeftBottomItemsLanguages[0][languageIndex].Header;
-            leftBottomItems["HardwareOrganizer"].Content = ApplicationLocalozation.LeftBottomItemsLanguages[0][languageIndex].Content;
+            leftBottomItems["HardwareOrganizer"].Header = ApplicationLocalozation.LeftBottomItemsTranslations[0][languageIndex].Header;
+            leftBottomItems["HardwareOrganizer"].Content = ApplicationLocalozation.LeftBottomItemsTranslations[0][languageIndex].Content;
 
-            farRightItems["Property"].Header = ApplicationLocalozation.FarRightItemsLanguages[0][languageIndex].Header;
-            farRightItems["Property"].Content = ApplicationLocalozation.FarRightItemsLanguages[0][languageIndex].Content;
+            farRightItems["Property"].Header = ApplicationLocalozation.FarRightItemsTranslations[0][languageIndex].Header;
+            farRightItems["Property"].Content = ApplicationLocalozation.FarRightItemsTranslations[0][languageIndex].Content;
 
-            centralItems["Workspace"].Header = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Header;
-            centralItems["Workspace"].Content = ApplicationLocalozation.CentralItemsLanguages[0][languageIndex].Content;
+            centralItems["Workspace"].Header = ApplicationLocalozation.CentralItemsTranslations[0][languageIndex].Header;
+            centralItems["Workspace"].Content = ApplicationLocalozation.CentralItemsTranslations[0][languageIndex].Content;
 
-            toolToolTips = ApplicationLocalozation.ToolToolTipLanguages[languageIndex];
+            toolToolTips = ApplicationLocalozation.ToolToolTipTranslations[languageIndex];
 
             // Clearing and repopulating ItemsSource and DataContext. This is necessary to update the data.
 

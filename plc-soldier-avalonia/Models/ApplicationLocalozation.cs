@@ -16,7 +16,7 @@ namespace plc_soldier_avalonia.Models
 
         public static List<string> ApplicationTitle = new List<string> { "ПЛК Армеец", "PLC Soldier" };
 
-        public static Dictionary<string, List<string>> TopMenuLanguages = new Dictionary<string, List<string>>
+        public static Dictionary<string, List<string>> TopMenuTranslations = new Dictionary<string, List<string>>
         {
             {"File", new List<string>() { "Файл", "File" } },
             {"New project", new List<string>() { "Новый проект", "New project" } },
@@ -43,34 +43,34 @@ namespace plc_soldier_avalonia.Models
             {"Help", new List<string>() { "Помощь", "Help" } },
         };
 
-        public static Dictionary<int, List<BottomTabItem>> BottomItemsLanguages = new Dictionary<int, List<BottomTabItem>>
+        public static Dictionary<int, List<BottomTabItem>> BottomItemsTranslations = new Dictionary<int, List<BottomTabItem>>
         {
             {0, new List<BottomTabItem>() { new BottomTabItem() { Content = "какой-то текст", Header = "Ошибки" }, new BottomTabItem() { Content = "some text", Header = "Errors" }  } },
             {1, new List<BottomTabItem>() { new BottomTabItem() { Content = "какой-то текст", Header = "Поиск результатов" }, new BottomTabItem() { Content = "some text", Header = "Search results" }  } },
             {2, new List<BottomTabItem>() { new BottomTabItem() { Content = "какой-то текст", Header = "Просмотр" }, new BottomTabItem() { Content = "some text", Header = "Watch" }  } },
         };
 
-        public static Dictionary<int, List<LeftUpperTabItem>> LeftUpperItemsLanguages = new Dictionary<int, List<LeftUpperTabItem>>
+        public static Dictionary<int, List<LeftUpperTabItem>> LeftUpperItemsTranslations = new Dictionary<int, List<LeftUpperTabItem>>
         {
             {0, new List<LeftUpperTabItem>() { new LeftUpperTabItem() { Header = "Логический органайзер" }, new LeftUpperTabItem() { Header = "Logical organizer" }  } },
         };
 
-        public static Dictionary<int, List<LeftBottomTabItem>> LeftBottomItemsLanguages = new Dictionary<int, List<LeftBottomTabItem>>
+        public static Dictionary<int, List<LeftBottomTabItem>> LeftBottomItemsTranslations = new Dictionary<int, List<LeftBottomTabItem>>
         {
             {0, new List<LeftBottomTabItem>() { new LeftBottomTabItem() { Header = "Аппаратный органайзер", Content = "какой-то текст" }, new LeftBottomTabItem() { Header = "Hardware organizer", Content = "some text" }  } },
         };
 
-        public static Dictionary<int, List<FarRightTabItem>> FarRightItemsLanguages = new Dictionary<int, List<FarRightTabItem>>
+        public static Dictionary<int, List<FarRightTabItem>> FarRightItemsTranslations = new Dictionary<int, List<FarRightTabItem>>
         {
             {0, new List<FarRightTabItem>() { new FarRightTabItem() { Content = "какой-то текст", Header = "Свойства" }, new FarRightTabItem() { Content = "some text", Header = "Property" }  } },
         };
 
-        public static Dictionary<int, List<CentralTabItem>> CentralItemsLanguages = new Dictionary<int, List<CentralTabItem>>
+        public static Dictionary<int, List<CentralTabItem>> CentralItemsTranslations = new Dictionary<int, List<CentralTabItem>>
         {
             {0, new List<CentralTabItem>() { new CentralTabItem() { Content = "какой-то текст", Header = "Рабочая область" }, new CentralTabItem() { Content = "some text", Header = "Workspace" }  } },
         };
 
-        public static List<ToolToolTip> ToolToolTipLanguages = new List<ToolToolTip>()
+        public static List<ToolToolTip> ToolToolTipTranslations = new List<ToolToolTip>()
         {
             new ToolToolTip()
             {
