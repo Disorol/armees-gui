@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace plc_soldier_avalonia.Models
+namespace Classes
 {
     public static class TabStatus
     {
@@ -16,7 +16,7 @@ namespace plc_soldier_avalonia.Models
             Only the size values of FarRightSpace, BottomSpace, LeftBottomSpace and LeftSpace are stored,
             because the size values of neighboring spaces are set by a star.
         */
-        public static Dictionary<string, GridLength> gridLengths = new Dictionary<string, GridLength> 
+        public static Dictionary<string, GridLength> gridLengths = new Dictionary<string, GridLength>
         {
             {"FarRight_Width", new GridLength()},
             {"Bottom_Height", new GridLength()},

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace plc_soldier_avalonia.Models
+namespace Classes
 {
     public static class ExtensionToIcon
     {

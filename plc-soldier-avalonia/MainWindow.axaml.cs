@@ -7,6 +7,7 @@ using Avalonia.Platform.Storage;
 using System.Threading.Tasks;
 using Avalonia.Input;
 using SkiaSharp;
+using Classes;
 
 namespace plc_soldier_avalonia
 {

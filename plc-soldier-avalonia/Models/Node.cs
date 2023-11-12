@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
-using plc_soldier_avalonia.Models;
+using Classes;
 
 namespace plc_soldier_avalonia.Models
 {
