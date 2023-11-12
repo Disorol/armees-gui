@@ -9,6 +9,7 @@ using Avalonia.Input;
 using SkiaSharp;
 using Classes;
 using Avalonia.Platform;
+using plc_soldier_avalonia.Classes;
 
 namespace plc_soldier_avalonia
 {
