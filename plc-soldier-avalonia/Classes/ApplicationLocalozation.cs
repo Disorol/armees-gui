@@ -69,6 +69,7 @@ namespace Classes
         public static Dictionary<int, List<CentralTabItem>> CentralItemsTranslations = new Dictionary<int, List<CentralTabItem>>
         {
             {0, new List<CentralTabItem>() { new CentralTabItem() { Content = "какой-то текст", Header = "Рабочая область" }, new CentralTabItem() { Content = "some text", Header = "Workspace" }  } },
+            {1, new List<CentralTabItem>() { new CentralTabItem() { Header = "Редактор переменных" }, new CentralTabItem() { Header = "Variable editor" }  } },
         };
 
         public static List<ToolToolTip> ToolToolTipTranslations = new List<ToolToolTip>()

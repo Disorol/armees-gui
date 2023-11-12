@@ -44,6 +44,7 @@
           <MenuItem Name="SearchResults_MenuItem" Header="Поиск результатов" Click="SearchResults_Click"/>
           <MenuItem Name="Watch_MenuItem" Header="Просмотр" Click="Watch_Click"/>
           <MenuItem Name="WorkSpace_MenuItem" Header="Рабочая область" Click="Work_Click"/>
+          <MenuItem Name="VariableEditor_MenuItem" Header="Редактор переменных" Click="VariableEditor_Click"/>
           <MenuItem Name="Property_MenuItem" Header="Свойства" Click="Property_Click"/>
         </MenuItem>
         <MenuItem Name="Search_MenuItem" Header="Поиск"></MenuItem>

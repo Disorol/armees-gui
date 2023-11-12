@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Avalonia.Input;
 using SkiaSharp;
 using Classes;
+using Avalonia.Platform;
 
 namespace plc_soldier_avalonia
 {
@@ -17,20 +18,20 @@ namespace plc_soldier_avalonia
         Dictionary<string, BottomTabItem> bottomItems = new Dictionary<string, BottomTabItem>()
         {
             {"Errors", new BottomTabItem(){Content = "какой-то текст", Header = "Ошибки", isVisible = false }},
-            {"SearchResults", new BottomTabItem(){Content = "какой-то текст", Header = "Поиск результатов", isVisible = false }},
+            {"Search results", new BottomTabItem(){Content = "какой-то текст", Header = "Поиск результатов", isVisible = false }},
             {"Watch", new BottomTabItem(){Content = "какой-то текст", Header = "Просмотр", isVisible = true }},
         };
 
         // List of content for left upper space TabItems
         Dictionary<string, LeftUpperTabItem> leftUpperItems = new Dictionary<string, LeftUpperTabItem>()
         {
-            {"LogicalOrganizer", new LeftUpperTabItem(){Header = "Логический органайзер", TreeViewContent = new ObservableCollection<Node> { new Node(@"C:\Users\T\source\repos\plc-soldier-wpf") } } },
+            {"Logical organizer", new LeftUpperTabItem(){Header = "Логический органайзер", TreeViewContent = new ObservableCollection<Node> { new Node(@"C:\Users\T\source\repos\plc-soldier-wpf") } } },
         };
 
         // List of content for left bottom space TabItems
         Dictionary<string, LeftBottomTabItem> leftBottomItems = new Dictionary<string, LeftBottomTabItem>()
         {
-            {"HardwareOrganizer", new LeftBottomTabItem(){Header = "Аппаратный органайзер", Content = "какой-то текст" } },
+            {"Hardware organizer", new LeftBottomTabItem(){Header = "Аппаратный органайзер", Content = "какой-то текст" } },
         };
 
         // List of content for far right space TabItems
@@ -43,6 +44,7 @@ namespace plc_soldier_avalonia
         Dictionary<string, CentralTabItem> centralItems = new Dictionary<string, CentralTabItem>()
         {
             {"Workspace", new CentralTabItem(){Content = "какой-то текст", Header = "Рабочая область" } },
+            {"Variable editor", new CentralTabItem(){Header = "Редактор переменных" } },
         };
 
         // A list containing bottom space Tabitems
@@ -73,9 +75,9 @@ namespace plc_soldier_avalonia
             FarRightContent = new ObservableCollection<FarRightTabItem>();
             CentralContent = new ObservableCollection<CentralTabItem>();
 
-            AddingTabItemsAtStartup(new List<LeftUpperTabItem>() { leftUpperItems["LogicalOrganizer"] }, 
-                                    new List<BottomTabItem>() { bottomItems["Errors"], bottomItems["SearchResults"], bottomItems["Watch"] },
-                                    new List<LeftBottomTabItem>() { leftBottomItems["HardwareOrganizer"] },
+            AddingTabItemsAtStartup(new List<LeftUpperTabItem>() { leftUpperItems["Logical organizer"] }, 
+                                    new List<BottomTabItem>() { bottomItems["Errors"], bottomItems["Search results"], bottomItems["Watch"] },
+                                    new List<LeftBottomTabItem>() { leftBottomItems["Hardware organizer"] },
                                     new List<FarRightTabItem>() { farRightItems["Property"] },
                                     new List<CentralTabItem>() { centralItems["Workspace"] });
 
@@ -113,16 +115,16 @@ namespace plc_soldier_avalonia
                 Checking for adding tabs to spaces. 
                 If added, the corresponding buttons in the "view" menu item are disabled.
             */
-            if (leftUpperTabItemsStartup.Contains(leftUpperItems["LogicalOrganizer"]))
+            if (leftUpperTabItemsStartup.Contains(leftUpperItems["Logical organizer"]))
                 LogicalOrganizer_MenuItem.IsEnabled = false;
 
-            if (leftBottomTabItemsStartup.Contains(leftBottomItems["HardwareOrganizer"]))
+            if (leftBottomTabItemsStartup.Contains(leftBottomItems["Hardware organizer"]))
                 HardwareOrganizer_MenuItem.IsEnabled = false;
 
             if (bottomTabItemsStartup.Contains(bottomItems["Errors"]))
                 Errors_MenuItem.IsEnabled = false;
 
-            if (bottomTabItemsStartup.Contains(bottomItems["SearchResults"]))
+            if (bottomTabItemsStartup.Contains(bottomItems["Search results"]))
                 SearchResults_MenuItem.IsEnabled = false;
 
             if (bottomTabItemsStartup.Contains(bottomItems["Watch"]))
@@ -167,14 +169,16 @@ namespace plc_soldier_avalonia
             {
                 if (b.DataContext is BottomTabItem bottomExample) // Removing BottomTabItem
                 {
-                    BottomContent.Remove(bottomItems["Errors"]);
-                    BottomContent.Remove(bottomItems["SearchResults"]);
-                    BottomContent.Remove(bottomItems["Watch"]);
-
-                    Errors_MenuItem.IsEnabled = true;
-                    SearchResults_MenuItem.IsEnabled = true;
-                    Watch_MenuItem.IsEnabled = true;
-
+                    if (bottomExample == bottomItems["Errors"] || bottomExample == bottomItems["Search results"] || bottomExample == bottomItems["Watch"])
+                    {
+                        BottomContent.Remove(bottomItems["Errors"]);
+                        BottomContent.Remove(bottomItems["Search results"]);
+                        BottomContent.Remove(bottomItems["Watch"]);
+                        Errors_MenuItem.IsEnabled = true;
+                        SearchResults_MenuItem.IsEnabled = true;
+                        Watch_MenuItem.IsEnabled = true;
+                    }
+                    
                     if (BottomContent.Count == 0 ) 
                     {
                         /* 
@@ -207,11 +211,13 @@ namespace plc_soldier_avalonia
                         }
                     }
                 } 
-                else if (b.DataContext is LeftUpperTabItem leftExample) // Removing LeftUpperTabItem
+                else if (b.DataContext is LeftUpperTabItem leftUpperExample) // Removing LeftUpperTabItem
                 {
-                    LeftUpperContent.Remove(leftExample);
-
-                    LogicalOrganizer_MenuItem.IsEnabled = true;
+                    if (leftUpperExample == leftUpperItems["Logical organizer"])
+                    {
+                        LeftUpperContent.Remove(leftUpperItems["Logical organizer"]);
+                        LogicalOrganizer_MenuItem.IsEnabled = true;
+                    }
 
                     if (LeftUpperContent.Count == 0)
                     {
@@ -247,9 +253,11 @@ namespace plc_soldier_avalonia
                 }
                 else if (b.DataContext is LeftBottomTabItem leftBottomExample) // Removing LeftBottomTabItem
                 {
-                    LeftBottomContent.Remove(leftBottomExample);
-
-                    HardwareOrganizer_MenuItem.IsEnabled = true;
+                    if (leftBottomExample == leftBottomItems["Hardware organizer"])
+                    {
+                        LeftBottomContent.Remove(leftBottomItems["Hardware organizer"]);
+                        HardwareOrganizer_MenuItem.IsEnabled = true;
+                    }
 
                     if (LeftBottomContent.Count == 0)
                     {
@@ -285,9 +293,12 @@ namespace plc_soldier_avalonia
                 }
                 else if (b.DataContext is FarRightTabItem farRightExample) // Removing FarRightTabItem
                 {
-                    FarRightContent.Remove(farRightExample);
-
-                    Property_MenuItem.IsEnabled = true;
+                    if (farRightExample == farRightItems["Property"])
+                    {
+                        FarRightContent.Remove(farRightItems["Property"]);
+                        Property_MenuItem.IsEnabled = true;
+                    }
+                    
 
                     if (FarRightContent.Count == 0)
                     {
@@ -337,9 +348,16 @@ namespace plc_soldier_avalonia
                 }
                 else if (b.DataContext is CentralTabItem centralExample) // Removing CentralTabItem
                 {
-                    CentralContent.Remove(centralExample);
-
-                    WorkSpace_MenuItem.IsEnabled = true;
+                    if (centralExample == centralItems["Workspace"])
+                    {
+                        CentralContent.Remove(centralItems["Workspace"]);
+                        WorkSpace_MenuItem.IsEnabled = true;
+                    }
+                    else if (centralExample == centralItems["Variable editor"])
+                    {
+                        CentralContent.Remove(centralItems["Variable editor"]);
+                        VariableEditor_MenuItem.IsEnabled = true;
+                    }
 
                     if (CentralContent.Count == 0)
                     {
@@ -396,9 +414,9 @@ namespace plc_soldier_avalonia
             LeftUpperExpansion();
             LULBExpansion();
 
-            if (!LeftUpperContent.Contains(leftUpperItems["LogicalOrganizer"]))
+            if (!LeftUpperContent.Contains(leftUpperItems["Logical organizer"]))
             {
-                LeftUpperContent.Add(leftUpperItems["LogicalOrganizer"]);
+                LeftUpperContent.Add(leftUpperItems["Logical organizer"]);
                 LogicalOrganizer_MenuItem.IsEnabled = false;
             }        
         }
@@ -409,9 +427,9 @@ namespace plc_soldier_avalonia
             LeftBottomExpansion();
             LULBExpansion();
 
-            if (!LeftBottomContent.Contains(leftBottomItems["HardwareOrganizer"]))
+            if (!LeftBottomContent.Contains(leftBottomItems["Hardware organizer"]))
             {
-                LeftBottomContent.Add(leftBottomItems["HardwareOrganizer"]);
+                LeftBottomContent.Add(leftBottomItems["Hardware organizer"]);
                 HardwareOrganizer_MenuItem.IsEnabled = false;
             }
         }
@@ -427,9 +445,9 @@ namespace plc_soldier_avalonia
                 BottomContent.Add(bottomItems["Errors"]);
                 Errors_MenuItem.IsEnabled = false;
             }
-            if (!BottomContent.Contains(bottomItems["SearchResults"]))
+            if (!BottomContent.Contains(bottomItems["Search results"]))
             {
-                BottomContent.Add(bottomItems["SearchResults"]);
+                BottomContent.Add(bottomItems["Search results"]);
                 SearchResults_MenuItem.IsEnabled = false;
             }
             if (!BottomContent.Contains(bottomItems["Watch"]))
@@ -450,9 +468,9 @@ namespace plc_soldier_avalonia
                 BottomContent.Add(bottomItems["Errors"]);
                 Errors_MenuItem.IsEnabled = false;
             }
-            if (!BottomContent.Contains(bottomItems["SearchResults"]))
+            if (!BottomContent.Contains(bottomItems["Search results"]))
             {
-                BottomContent.Add(bottomItems["SearchResults"]);
+                BottomContent.Add(bottomItems["Search results"]);
                 SearchResults_MenuItem.IsEnabled = false;
             }
             if (!BottomContent.Contains(bottomItems["Watch"]))
@@ -473,9 +491,9 @@ namespace plc_soldier_avalonia
                 BottomContent.Add(bottomItems["Errors"]);
                 Errors_MenuItem.IsEnabled = false;
             }
-            if (!BottomContent.Contains(bottomItems["SearchResults"]))
+            if (!BottomContent.Contains(bottomItems["Search results"]))
             {
-                BottomContent.Add(bottomItems["SearchResults"]);
+                BottomContent.Add(bottomItems["Search results"]);
                 SearchResults_MenuItem.IsEnabled = false;
             }
             if (!BottomContent.Contains(bottomItems["Watch"]))
@@ -496,6 +514,19 @@ namespace plc_soldier_avalonia
             {
                 CentralContent.Add(centralItems["Workspace"]);
                 WorkSpace_MenuItem.IsEnabled = false;
+            }
+        }
+
+        private void VariableEditor_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            CRBExpansion();
+            CRRExpansion();
+            CentralExpansion();
+
+            if (!CentralContent.Contains(centralItems["Variable editor"]))
+            {
+                CentralContent.Add(centralItems["Variable editor"]);
+                VariableEditor_MenuItem.IsEnabled = false;
             }
         }
 
@@ -698,21 +729,23 @@ namespace plc_soldier_avalonia
 
             bottomItems["Errors"].Header = ApplicationLocalozation.BottomItemsTranslations[0][languageIndex].Header;
             bottomItems["Errors"].Content = ApplicationLocalozation.BottomItemsTranslations[0][languageIndex].Content;
-            bottomItems["SearchResults"].Header = ApplicationLocalozation.BottomItemsTranslations[1][languageIndex].Header;
-            bottomItems["SearchResults"].Content = ApplicationLocalozation.BottomItemsTranslations[1][languageIndex].Content;
+            bottomItems["Search results"].Header = ApplicationLocalozation.BottomItemsTranslations[1][languageIndex].Header;
+            bottomItems["Search results"].Content = ApplicationLocalozation.BottomItemsTranslations[1][languageIndex].Content;
             bottomItems["Watch"].Header = ApplicationLocalozation.BottomItemsTranslations[2][languageIndex].Header;
             bottomItems["Watch"].Content = ApplicationLocalozation.BottomItemsTranslations[2][languageIndex].Content;
 
-            leftUpperItems["LogicalOrganizer"].Header = ApplicationLocalozation.LeftUpperItemsTranslations[0][languageIndex].Header;
+            leftUpperItems["Logical organizer"].Header = ApplicationLocalozation.LeftUpperItemsTranslations[0][languageIndex].Header;
 
-            leftBottomItems["HardwareOrganizer"].Header = ApplicationLocalozation.LeftBottomItemsTranslations[0][languageIndex].Header;
-            leftBottomItems["HardwareOrganizer"].Content = ApplicationLocalozation.LeftBottomItemsTranslations[0][languageIndex].Content;
+            leftBottomItems["Hardware organizer"].Header = ApplicationLocalozation.LeftBottomItemsTranslations[0][languageIndex].Header;
+            leftBottomItems["Hardware organizer"].Content = ApplicationLocalozation.LeftBottomItemsTranslations[0][languageIndex].Content;
 
             farRightItems["Property"].Header = ApplicationLocalozation.FarRightItemsTranslations[0][languageIndex].Header;
             farRightItems["Property"].Content = ApplicationLocalozation.FarRightItemsTranslations[0][languageIndex].Content;
 
             centralItems["Workspace"].Header = ApplicationLocalozation.CentralItemsTranslations[0][languageIndex].Header;
             centralItems["Workspace"].Content = ApplicationLocalozation.CentralItemsTranslations[0][languageIndex].Content;
+
+            centralItems["Variable editor"].Header = ApplicationLocalozation.CentralItemsTranslations[1][languageIndex].Header;
 
             toolToolTips = ApplicationLocalozation.ToolToolTipTranslations[languageIndex];
 
@@ -756,7 +789,7 @@ namespace plc_soldier_avalonia
 
             if (result != null)
             {
-                leftUpperItems["LogicalOrganizer"].TreeViewContent = new ObservableCollection<Node> { new Node(result) };
+                leftUpperItems["Logical organizer"].TreeViewContent = new ObservableCollection<Node> { new Node(result) };
 
                 LeftUpperSpace.ItemsSource = null;
 
