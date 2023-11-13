@@ -26,7 +26,7 @@ namespace plc_soldier_avalonia
         // List of content for left upper space TabItems
         Dictionary<string, LeftUpperTabItem> leftUpperItems = new Dictionary<string, LeftUpperTabItem>()
         {
-            {"Logical organizer", new LeftUpperTabItem(){Header = "Логический органайзер", TreeViewContent = new ObservableCollection<Node> { new Node(@"C:\Users\T\source\repos\plc-soldier-wpf") } } },
+            {"Logical organizer", new LeftUpperTabItem(){Header = "Логический органайзер", TreeViewContent = null } },
         };
 
         // List of content for left bottom space TabItems
